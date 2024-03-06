@@ -1,0 +1,13 @@
+.first-header-container {
+  background-image: url('../images/background-header-desktop.jpg');
+  background-size: cover;
+  height: 216px;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 0px;
+}
+
+.header-navigation ul {
+  display: flex;
+  list-style: none;
+}
