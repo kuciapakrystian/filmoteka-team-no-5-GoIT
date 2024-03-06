@@ -33,7 +33,7 @@ na GitHub Pages, w gałąź `gh-pages`, za kazdym razem jeśli zostaną wprowadz
 "scripts": {
   "build": "parcel build src/*.html --public-url /nazwa_repozytorium/"
 },
-```
+``
 
 Po jakimś czasie stronę mozna będzie zobaczyć na zywo pod adresem który 
 jest wpisany w poprawione właściwości `homepage`, na przykład
