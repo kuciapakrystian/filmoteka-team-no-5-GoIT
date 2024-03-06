@@ -21,5 +21,15 @@
     "@parcel/transformer-sass": "^2.8.3",
     "parcel": "^2.8.3",
     "posthtml-include": "^1.7.4"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "buffer": "^6.0.3",
+    "firebase": "^9.17.1-canary.b30186ffc",
+    "lodash.debounce": "^4.0.8",
+    "modern-normalize": "^2.0.0",
+    "notiflix": "^3.2.7",
+    "npm": "^9.2.0",
+    "spin.js": "^4.1.1"
   }
 }
