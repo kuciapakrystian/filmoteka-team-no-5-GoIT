@@ -1,0 +1,125 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+body {
+  min-height: 100vh;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.visually-hidden {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.content-wrap {
+  padding-bottom: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .content-wrap {
+    padding-bottom: 77px;
+  }
+}
+[data-modal] {
+  animation: modal-open 0.25s;
+}
+[data-modal].modal-container {
+  animation: modal-open 0.35s;
+}
+
+@keyframes modal-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.light-theme {
+  color: #000000;
+  transition: all 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71), opacity 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71);
+}
+
+.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
+  transition: all 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71), opacity 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71);
+}
+.dark-theme .login-input,
+.dark-theme .modal-card__list-details {
+  color: #ffffff;
+}
+.dark-theme .pagination-button,
+.dark-theme .modal-card__votes {
+  color: #ff6b08;
+}
+.dark-theme .pagination-button,
+.dark-theme .modal-card,
+.dark-theme .modal__container,
+.dark-theme .modal-login {
+  background-color: #333333;
+}
+.dark-theme .login-input {
+  border-bottom: 2px solid #ff6b08;
+}
+.dark-theme .activebtn {
+  background-color: #ff6b08;
+}
+.dark-theme .footer {
+  background-color: #000000;
+}
+.dark-theme .pagination-button {
+  box-shadow: #ffffff;
+}
+.dark-theme .pagination-button:hover, .dark-theme .pagination-button:focus {
+  background-color: #ff6b08;
+  color: #333333;
+}
+.dark-theme .activebtn {
+  color: #ffffff;
+  box-shadow: #ff6b08;
+}
+.dark-theme .activebtn:hover, .dark-theme .activebtn:focus {
+  background-color: #ff6b08;
+  color: #333333;
+}

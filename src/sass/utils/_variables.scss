@@ -1,0 +1,41 @@
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;
+
+// Fonts
+$main-font: 'Roboto', sans-serif;
+
+// Text colors
+$main-text-cl: #000000;
+$secondary-text-cl: #ffffff;
+
+$info-title-cl: #8c8c8c;
+$text-footer-cl: #545454;
+
+// Background colors
+$main-bg-cl: #ffffff;
+$secondary-bg-cl: #f7f7f7;
+$dark-bg-cl: #000000;
+$dark-secondary-bg-cl: rgba(0, 0, 0, 0.56);
+
+$secondary-accent-cl: #ff6b08;
+
+// Button colors
+$accent-btn-color: #ff6b08;
+$white-btn-color: #fff;
+$black-btn-color: #000;
+
+// Transition
+$transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+$transition-time: 500ms;
+
+// Day night theme
+$night-main-bg-color:#333333;
+$night-second-bg-color: #ff6b08;
+$night-thirth-bg-color:#000000;
+
+$night-main-color: #ffffff;
+$night-second-color: #ff6b08;
+$night-thirth-color: #333333;
+
+$night-main-shadow-color: #ff6b08;

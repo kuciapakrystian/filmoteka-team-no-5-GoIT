@@ -1,0 +1,140 @@
+@use '../utils' as *;
+
+// edit below
+
+.header-library {
+  position: relative;
+  background-image: url('/src/images/Rectangle-1x-desktop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  height: 230px;
+  margin: 0 auto;
+  color: $secondary-text-cl;
+  font-family: $main-font;
+  //box-shadow: -5px 10px 15px -6px $secondary-accent-cl;
+}
+
+.header__btn-wrapper {
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__btn {
+  text-transform: none;
+  width: 130px;
+  height: 44px;
+}
+
+.btn-lib {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 5px;
+
+  text-transform: uppercase;
+
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 5px;
+
+  &:hover {
+    animation: rotate 0.7s ease-in-out both;
+    animation-delay: 0.04s;
+  }
+
+  &--white {
+    color: $white-btn-color;
+    border-color: $white-btn-color;
+
+    &:hover {
+      border-color: $accent-btn-color;
+      color: $white-btn-color;
+      background-color: $accent-btn-color;
+    }
+  }
+
+ 
+  &-js-active {
+    border-color: $accent-btn-color;
+    color: $white-btn-color;
+    background-color: $accent-btn-color;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  }
+
+  &--black {
+    border-color: $black-btn-color;
+    color: $black-btn-color;
+    opacity: 1;
+
+    &:hover {
+      border-color: $accent-btn-color;
+      color: $white-btn-color;
+      background-color: $accent-btn-color;
+    }
+  }
+}
+
+.btn-wrapper {
+  display: flex;
+}
+
+.switch__btn {
+  position: absolute;
+
+  margin-top: -33px;
+  margin-left: 90px;
+
+  opacity: 0.4;
+
+  transition: opacity;
+  transition-duration: $transition-time;
+  transition-timing-function: $transition-cubic;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.switch__btn__icon-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch__btn__icon {
+  color: $secondary-accent-cl;
+  font-size: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .header__btn-wrapper {
+    gap: 32px;
+  }
+
+  .switch__btn {
+    margin-left: 500px;
+  }
+
+  .header__btn {
+    width: 136px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .switch__btn {
+    margin-left: 1000px;
+  }
+
+  .header__btn-wrapper {
+    gap: 16px;
+  }
+
+}
