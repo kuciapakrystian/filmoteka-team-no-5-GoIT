@@ -1,0 +1,163 @@
+@use '../utils' as *;
+
+// edit below
+
+.header-home {
+  position: relative;
+  background-image: url('/src/images/bg-image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  height: 230px;
+  margin: 0 auto;
+  color: $secondary-text-cl;
+  font-family: $main-font;
+}
+
+.header-home__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $dark-secondary-bg-cl;
+}
+
+.header-home__container {
+  max-width: 280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+
+  &:hover .logo__icon {
+    transform: rotate(180deg);
+  }
+
+  &__icon {
+    transition: transform 0.5s ease-out;
+  }
+}
+
+.logo__text {
+  display: none;
+  background: linear-gradient(
+        225deg,
+        $secondary-accent-cl,
+        $main-bg-cl,
+        $secondary-accent-cl
+      )
+      0 0 / 400%,
+    100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 8s infinite linear;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 40px;
+}
+
+.nav__list {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav__item {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.nav__link {
+  transition: color 250ms;
+
+  &--active {
+    border-bottom: 3px solid $secondary-accent-cl;
+  }
+
+  &:hover {
+    color: $secondary-accent-cl;
+  }
+}
+
+.search-form {
+  width: 100%;
+  max-width: 336px;
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  input {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    outline: none;
+    color: inherit;
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+
+  &__icon {
+    transition: transform 250ms;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover .search-form__icon {
+      transform: scale(1.5);
+    }
+  }
+}
+
+.warning {
+  color: #ff001b;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .header-home__container {
+    max-width: 617px;
+  }
+
+  .logo__text {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .nav__list {
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-home__container {
+    max-width: 882px;
+  }
+}
+
+@keyframes move-bg {
+  to {
+    background-position: 400%;
+  }
+}
