@@ -1,7 +1,16 @@
 <div class="first-header-container">
-    <a href="" class="logo-header">FilmWeb</a>
+    <a href="" class="logo-header">
+        <svg>
+            <use href="./images/icons.svg#film"></use>
+        </svg>
+        <span>Filmoteka</span>
+    </a>
     <div class="div-input-header">
-        <input type="text" placeholder="Movie search">
+        <form action="" class="header-form">
+            <input type="text" id="inputSearch">
+            <label for="inputSearch">Movie search</label>
+            <button type="submit">search</button>
+        </form>
         <p class="opacity-p-header">Search result not successful. Enter the correct movie name and try again.</p>
     </div>
     <nav class="header-navigation">
