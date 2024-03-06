@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><link rel="stylesheet" href="/index.f7626f62.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagłówek strony</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g==" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- W taki sposbu dodajemy fragmenty w główny HTML-plik strony. -->
+    <article class="example">
+  <h1>HTML-fragmenty</h1>
+
+  <!-- Sciezka do zdjęcia z HTML-fragmenta jest taka sama jak z plikuindex.html -->
+  <img src="/demo.b3bbe381.jpg" alt="" width="320">
+  <p>
+    Plugin
+    <a href="https://github.com/posthtml/posthtml-include" target="_blank" rel="noopener noreferrer">
+      posthtml-include
+    </a>
+    pozwala dodawać HTML-pliki stron kod z innych HTML plików(fragmentów). Fragmenty
+    zapisują się w folderze
+    <code>src/partials</code>. Dodanie odbywa się przy komplikacji plików strony, np
+    <code>index.html</code>.
+  </p>
+
+  <p>
+    Ten plik <code>example.html</code> &mdash; przykład takiego fragmentu, który posiada jakiś kod dla strony głównej. To jest bardzo wygodne
+    przy pracy zespołowej podczas projektów studenckich,
+    kidy od razu kilka osób piszę kod w jednym HTML pliku.
+  </p>
+
+  <p>
+    Syntaksys dodania fragmentu do głównego pliku:
+    <code> &lt;include src="./partials/nazwa-pliku.html"&gt;&lt;/include&gt; </code>
+  </p>
+
+  <div class="background"></div>
+</article>
+
+
+    <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
+    <script src="/index.975ef6c8.js" defer=""></script>
+  </body>
+</html>
