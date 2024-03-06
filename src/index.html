@@ -21,15 +21,15 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Mynerve&family=Raleway:wght@500&display=swap" rel="stylesheet">
     <link rel="icon" href="/src/images/favicon.svg" type="image/x-icon" />
-    <!-- Please do not change stylesheet below - Parcel supports Sass automatically, no sass compiler needed>
-    <link rel="stylesheet" href="/src/sass/index.scss" />
+    <!-- Please do not change stylesheet below - Parcel supports Sass automatically, no sass compiler needed-->
+    <link href="./css/main.css" rel="stylesheet" />
   </head>
-  <body>
-    <!-- W taki sposbu dodajemy fragmenty w główny HTML-plik strony. -->
-    <link rel="stylesheet" href="./css/main.css" />
-    <include src="./partials/example.html"></include>
-
-    <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
-    <script src="./index.js" type="module"></script>
-  </body>
+  <body class="light-theme">
+    <!-- ❗️❗️❗️ Add partials like so for every page -->
+  <div class="content-wrap">
+  <include src="./partials/header-home.html"></include>
+  <include src="./partials/header-library.html"></include>
+  <include src="./partials/preloader.html"></include>
+</div>
+<include src="./partials/modal-log-in.html"></include>
 </html>
