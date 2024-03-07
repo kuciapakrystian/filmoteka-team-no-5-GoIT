@@ -1,9 +1,31 @@
 .footer{
+  background-color: #F7F7F7;
+}
+
+.footer-container{
+display:flex;
+justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.first-part{
+    display: flex;
+}
+
+.second-part{
   display: flex;
+  gap: 5px;
+padding-left: 4px;
 }
 
-
-.footer-text{
-color: yellow;
+.open-modal{
+text-decoration: underline;
 }
 
+.heart-footer{
+  padding: 3px;
+}
