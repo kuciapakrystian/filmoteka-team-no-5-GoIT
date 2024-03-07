@@ -1,0 +1,39 @@
+.library-header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../images/Rectangle-1x-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.second-header-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../images/Rectangle-1x-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 216px;
+  padding: 40px;
+  font-family: 'Roboto', sans-serif;
+  @media screen and (max-width: 768px) {
+    background-position: center;
+  }
+}
+
+.sec-cont-header-library ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.library-header-btn {
+  border-radius: 5px;
+  padding: 5rem 2rem;
+  cursor: pointer;
+}
+
+.list-btn-header:first-child {
+  background-color: #ff6b01;
+}
+
+.list-btn-header:nth-child(2) {
+  border: 1px solid #ffffff;
+}
