@@ -1,0 +1,125 @@
+$white: white;
+$red: red;
+$orange-red: #ff001b;
+$orange: #ff6b08;
+
+.home-header {
+  background-image: url('../images/background-header.png');
+  background-size: cover;
+}
+
+.first-header-container {
+  background-image: url('../images/background-header.png');
+  background-size: cover;
+  height: 216px;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header-navigation ul {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link-for-pages {
+  text-transform: uppercase;
+  color: $white;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.active-page-header {
+  border-bottom: 1px solid $red;
+  border-width: 3px;
+}
+
+.logo-header svg {
+  width: 24px;
+  height: 24px;
+  fill: transparent;
+}
+
+.logo-header span {
+  font-size: 30px;
+  color: $white;
+  font-weight: 500;
+}
+
+.opacity-p-header {
+  color: $orange-red;
+  font-weight: 14px;
+  font-weight: 400;
+  text-align: center;
+  opacity: 0;
+}
+
+#inputSearch {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 0.5px solid $white;
+  width: 394px;
+  color: $white;
+  padding: 5px 15px;
+  transition: 250ms ease-in-out;
+}
+
+#inputSearch:focus {
+  border-color: $orange;
+}
+
+.header-form {
+  margin-top: 80px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.header-form label {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  pointer-events: none;
+  color: $white;
+  font-size: 14px;
+  transform-origin: top left;
+}
+
+.header-form input:focus + label {
+  animation: labelFocus 0.3s ease forwards;
+}
+
+@keyframes labelFocus {
+  from {
+    top: 0;
+    font-size: 14px;
+    color: $white;
+  }
+  to {
+    top: -1.5rem;
+    font-size: 0.8em;
+    color: #666;
+  }
+}
+
+.header-form input:focus + button .search-icon path {
+  fill: orange;
+}
+
+.header-form button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  bottom: 20;
+  right: 7.3rem;
+  cursor: pointer;
+  fill: $white;
+  width: 8px;
+  height: 8px;
+}
