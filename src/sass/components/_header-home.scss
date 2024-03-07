@@ -73,7 +73,7 @@ a {
   border-bottom: 0.5px solid $white;
   width: 394px;
   color: $white;
-  padding: 5px 15px;
+  padding: 5px 30px 5px 5px;
   transition: 250ms ease-in-out;
 }
 
@@ -90,7 +90,7 @@ a {
 .header-form label {
   position: absolute;
   bottom: 5px;
-  left: 10px;
+  left: 5px;
   pointer-events: none;
   color: $white;
   font-size: 14px;
@@ -99,6 +99,10 @@ a {
 
 .header-form input:focus + label {
   animation: labelFocus 0.3s ease forwards;
+}
+
+.header-form input:not(:focus) + label {
+  animation: labelBlur 0.3s ease forwards;
 }
 
 @keyframes labelFocus {
@@ -114,6 +118,19 @@ a {
   }
 }
 
+@keyframes labelBlur {
+  from {
+    top: -1.5rem;
+    font-size: 0.8em;
+    color: #666;
+  }
+  to {
+    top: 2;
+    font-size: 14px;
+    color: $white;
+  }
+}
+
 .header-form input:focus + button .search-icon path {
   fill: orange;
 }
@@ -122,10 +139,10 @@ a {
   background-color: transparent;
   border: none;
   position: absolute;
-  bottom: 20;
+  bottom: 23;
   right: 9rem;
   cursor: pointer;
   fill: $white;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
