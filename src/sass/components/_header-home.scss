@@ -8,26 +8,53 @@ $orange: #ff6b08;
   padding: 0;
   box-sizing: border-box;
 }
-
 .home-header {
   background-image: url('../images/background-header.png');
   background-size: cover;
+
+  @media screen and (max-width: 768px) {
+    background-image: url(../images/tablet-header-bg.png);
+    background-size: cover;
+  }
+
+  @media screen and (max-width: 430px) {
+    background-image: url(../images/mobile-bg-header.png);
+  }
 }
 
 .first-header-container {
   background-image: url('../images/background-header.png');
   background-size: cover;
+  background-position: center;
   height: 216px;
-  display: flex;
-  justify-content: space-around;
-  padding: 40px 0px;
+  padding: 40px;
   font-family: 'Roboto', sans-serif;
+  @media screen and (max-width: 768px) {
+    background-image: url(../images/tablet-header-bg.png);
+    background-position: center;
+  }
+
+  @media screen and (max-width: 430px) {
+    background-image: url(../images/mobile-bg-header.png);
+    background-size: cover;
+  }
+}
+
+.first-content-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-content-header {
+  display: flex;
+  justify-content: center;
 }
 
 .header-navigation ul {
   display: flex;
   list-style: none;
   gap: 2.5rem;
+  align-items: center;
 }
 
 a {
@@ -56,14 +83,21 @@ a {
   font-size: 30px;
   color: $white;
   font-weight: 500;
+  @media screen and (max-width: 430px) {
+    display: none;
+  }
 }
 
 .opacity-p-header {
   color: $orange-red;
-  font-weight: 14px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
+  transition: 250ms ease-in-out;
   opacity: 0;
+  @media screen and (max-width: 430px) {
+    text-align: start;
+  }
 }
 
 #inputSearch {
@@ -75,6 +109,9 @@ a {
   color: $white;
   padding: 5px 30px 5px 5px;
   transition: 250ms ease-in-out;
+  @media screen and (max-width: 430px) {
+    width: 100%;
+  }
 }
 
 #inputSearch:focus {
@@ -82,9 +119,13 @@ a {
 }
 
 .header-form {
-  margin-top: 80px;
+  margin-top: 40px;
   position: relative;
   margin-bottom: 20px;
+  width: 394px;
+  @media screen and (max-width: 430px) {
+    width: 100%;
+  }
 }
 
 .header-form label {
@@ -95,6 +136,7 @@ a {
   color: $white;
   font-size: 14px;
   transform-origin: top left;
+  font-weight: 400;
 }
 
 .header-form input:focus + label {
@@ -140,9 +182,16 @@ a {
   border: none;
   position: absolute;
   bottom: 23;
-  right: 9rem;
+  right: 20;
   cursor: pointer;
   fill: $white;
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
+}
+
+.div-input-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
