@@ -3,6 +3,12 @@ $red: red;
 $orange-red: #ff001b;
 $orange: #ff6b08;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .home-header {
   background-image: url('../images/background-header.png');
   background-size: cover;
@@ -117,7 +123,7 @@ a {
   border: none;
   position: absolute;
   bottom: 20;
-  right: 7.3rem;
+  right: 9rem;
   cursor: pointer;
   fill: $white;
   width: 8px;
