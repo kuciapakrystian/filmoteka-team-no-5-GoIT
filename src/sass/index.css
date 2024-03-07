@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-header {
+  background-image: url("../images/background-header.png");
+  background-size: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .home-header {
+    background-image: url(../images/tablet-header-bg.png);
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 430px) {
+  .home-header {
+    background-image: url(../images/mobile-bg-header.png);
+  }
+}
+.first-header-container {
+  background-image: url("../images/background-header.png");
+  background-size: cover;
+  background-position: center;
+  height: 216px;
+  padding: 40px;
+  font-family: "Roboto", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .first-header-container {
+    background-image: url(../images/tablet-header-bg.png);
+    background-position: center;
+  }
+}
+@media screen and (max-width: 430px) {
+  .first-header-container {
+    background-image: url(../images/mobile-bg-header.png);
+    background-size: cover;
+  }
+}
+.first-content-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-content-header {
+  display: flex;
+  justify-content: center;
+}
+
+.header-navigation ul {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link-for-pages {
+  text-transform: uppercase;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.active-page-header {
+  border-bottom: 1px solid red;
+  border-width: 3px;
+}
+
+.logo-header svg {
+  width: 24px;
+  height: 24px;
+  fill: transparent;
+}
+
+.logo-header span {
+  font-size: 30px;
+  color: white;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 430px) {
+  .logo-header span {
+    display: none;
+  }
+}
+.opacity-p-header {
+  color: #ff001b;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  transition: 250ms ease-in-out;
+  opacity: 0;
+}
+
+@media screen and (max-width: 430px) {
+  .opacity-p-header {
+    text-align: start;
+  }
+}
+#inputSearch {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 0.5px solid white;
+  width: 394px;
+  color: white;
+  padding: 5px 30px 5px 5px;
+  transition: 250ms ease-in-out;
+}
+
+@media screen and (max-width: 430px) {
+  #inputSearch {
+    width: 100%;
+  }
+}
+#inputSearch:focus {
+  border-color: #ff6b08;
+}
+
+.header-form {
+  margin-top: 40px;
+  position: relative;
+  margin-bottom: 20px;
+  width: 394px;
+}
+
+@media screen and (max-width: 430px) {
+  .header-form {
+    width: 100%;
+  }
+}
+.header-form label {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  pointer-events: none;
+  color: white;
+  font-size: 14px;
+  transform-origin: top left;
+  font-weight: 400;
+}
+
+.header-form input:focus + label {
+  animation: labelFocus 0.3s ease forwards;
+}
+
+.header-form input:not(:focus) + label {
+  animation: labelBlur 0.3s ease forwards;
+}
+
+@keyframes labelFocus {
+  from {
+    top: 0;
+    font-size: 14px;
+    color: white;
+  }
+  to {
+    top: -1.5rem;
+    font-size: 0.8em;
+    color: #666;
+  }
+}
+@keyframes labelBlur {
+  from {
+    top: -1.5rem;
+    font-size: 0.8em;
+    color: #666;
+  }
+  to {
+    top: 2;
+    font-size: 14px;
+    color: white;
+  }
+}
+.header-form input:focus + button .search-icon path {
+  fill: orange;
+}
+
+.header-form button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  bottom: 23;
+  right: 20;
+  cursor: pointer;
+  fill: white;
+  width: 5px;
+  height: 5px;
+}
+
+.div-input-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=index.css.map */
