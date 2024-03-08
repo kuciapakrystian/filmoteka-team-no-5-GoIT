@@ -299,6 +299,13 @@ a {
 @media screen and (max-width: 768px) {
   .second-header-container {
     background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Rectangle-1x-tablet.jpg");
+  }
+}
+@media screen and (max-width: 420px) {
+  .second-header-container {
+    background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Rectangle-1x-mobile.jpg");
   }
 }
 
@@ -339,6 +346,12 @@ a {
   border: 1px solid #ffffff;
   border-radius: 5px;
   background-color: transparent;
+}
+@media screen and (max-width: 420px) {
+  .library-header-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
 }
 
 .library-header-btn:focus,
