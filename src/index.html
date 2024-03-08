@@ -20,16 +20,21 @@
 <body>
   <!-- W taki sposbu dodajemy fragmenty w główny HTML-plik strony. -->
 
-  <include src="./partials/preloader.html"></include>
-  <include src="./partials/header-home.html"></include>
-<include src="./partials/footer.html"></include>
-<include src="./partials/modal-students.html"></include>
-
-
-  <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS
-    plik. -->
-<script type="module" src="./index.js"></script>
-
+  <!--WSZYSTKO JEST DODANE!!! PROSZĘ JUŻ NIŻEJ NIC NIE WKLEJAĆ, NAWET PLIKÓW Z JS, DZIĘKI!-->
+  <div class="content-wrap">
+    <include src="./partials/to-top.html"></include>
+    <include src="./partials/header-home.html"></include>
+    <include src="./partials/header-library.html"></include>
+    <include src="./partials/preloader.html"></include>
+    <include src="./partials/cards-home.html"></include>
+    <include src="./partials/cards-library.html"></include>
+    <include src="./partials/pagination.html"></include>
+  </div>
+  <include src="./partials/footer.html"></include>
+  <include src="./partials/modal-log-in.html"></include>
+  <include src="./partials/modal-card.html"></include>
+  <include src="./partials/modal-students.html"></include>
+  <script type="module" src="./index.js"></script>
+  
 </body>
-
 </html>
