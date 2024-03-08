@@ -2,5 +2,5 @@
 
 
 // import './js/spinner';
-import './js/teamModal'
+import './js/students-modal'
 
