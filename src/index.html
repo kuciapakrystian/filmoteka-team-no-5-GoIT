@@ -15,16 +15,20 @@
   <link rel="icon" href="/src/images/favicon.svg" type="image/x-icon" />
   <!-- Please do not change stylesheet below-->
   <link rel="stylesheet" href="/src/sass/index.scss" />
+  <script defer src="./js/currentPage.js"></script>
 </head>
 
 <body>
   <!-- W taki sposbu dodajemy fragmenty w główny HTML-plik strony. -->
-
-  <include src="./partials/preloader.html"></include>
-  <include src="./partials/header-home.html"></include>
-<include src="./partials/footer.html">
-</include>
-
+  <div id="home-body-container">
+    <include src="./partials/preloader.html"></include>
+    <include src="./partials/header-home.html"></include>
+    <include src="./partials/footer.html">
+    </include>
+  </div>
+  <div id="library-body-container">
+    <include src="./partials/header-library.html"></include>
+  </div>
   <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS
     plik. -->
 

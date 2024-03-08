@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 .home-header {
-  background-image: url("../images/background-header.png");
+  background-image: url('../images/background-header.png');
   background-size: cover;
 }
 
@@ -21,12 +25,12 @@
   }
 }
 .first-header-container {
-  background-image: url("../images/background-header.png");
+  background-image: url('../images/background-header.png');
   background-size: cover;
   background-position: center;
   height: 216px;
   padding: 40px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media screen and (max-width: 768px) {
@@ -208,18 +212,20 @@ a {
 }
 
 .library-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Rectangle-1x-desktop.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../images/Rectangle-1x-desktop.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .second-header-container {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Rectangle-1x-desktop.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../images/Rectangle-1x-desktop.jpg');
   background-size: cover;
   background-position: center;
   height: 216px;
   padding: 40px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media screen and (max-width: 768px) {
