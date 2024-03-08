@@ -101,7 +101,6 @@ button {
   background-image: url("../images/background-header.png");
   background-size: cover;
   background-position: center;
-  height: 216px;
   padding: 40px;
   font-family: "Roboto", sans-serif;
 }
@@ -294,7 +293,6 @@ a {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Rectangle-1x-desktop.jpg");
   background-size: cover;
   background-position: center;
-  height: 216px;
   padding: 40px;
   font-family: "Roboto", sans-serif;
 }
@@ -308,20 +306,7 @@ a {
   display: flex;
   list-style: none;
   gap: 2rem;
-}
-
-.library-header-btn {
-  border-radius: 5px;
-  padding: 5rem 2rem;
-  cursor: pointer;
-}
-
-.list-btn-header:first-child {
-  background-color: #ff6b01;
-}
-
-.list-btn-header:nth-child(2) {
-  border: 1px solid #ffffff;
+  margin-bottom: 13px;
 }
 
 .library-header {
@@ -338,32 +323,29 @@ a {
   display: flex;
   list-style: none;
   gap: 2rem;
+  margin-top: 40px;
 }
 
 .library-header-btn {
   border: none;
   border-radius: 5px;
-  padding: 5rem 2rem;
   cursor: pointer;
   color: white;
   text-transform: uppercase;
   padding: 1rem 0rem;
   background-color: transparent;
-  width: 148px;
+  width: 158px;
   text-align: center;
-}
-
-.list-btn-header:first-child {
   border: 1px solid #ffffff;
   border-radius: 5px;
   background-color: transparent;
 }
 
-.list-btn-header:nth-child(2) {
-  border: none;
-  box-shadow: 0px 0px 43px 0px rgba(255, 107, 1, 0.6);
+.library-header-btn:focus,
+.library-header-btn:active {
   background-color: #ff6b01;
-  border-radius: 5px;
+  box-shadow: 0px 0px 43px 0px rgba(255, 107, 1, 0.6);
+  border: none;
 }
 
 .first-content-header {
