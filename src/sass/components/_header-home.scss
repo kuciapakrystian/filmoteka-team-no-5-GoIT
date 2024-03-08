@@ -110,6 +110,8 @@ a {
   border-bottom: 0.5px solid $white;
   width: 394px;
   color: $white;
+  font-size: 14px;
+  font-weight: 400;
   padding: 5px 30px 5px 5px;
   transition: 250ms ease-in-out;
   @media screen and (max-width: 430px) {
@@ -133,13 +135,17 @@ a {
 
 .header-form label {
   position: absolute;
-  bottom: 5px;
+  bottom: -1px;
   left: 5px;
   pointer-events: none;
   color: $white;
   font-size: 14px;
   transform-origin: top left;
   font-weight: 400;
+}
+
+.header-form input:focus button svg {
+  fill: #ff6b08;
 }
 
 .header-form input:focus + label {
@@ -159,7 +165,7 @@ a {
   to {
     top: -1.5rem;
     font-size: 0.8em;
-    color: #666;
+    color: #ff6b08;
   }
 }
 
@@ -170,22 +176,21 @@ a {
     color: #666;
   }
   to {
-    top: 2;
+    top: 6;
     font-size: 14px;
     color: $white;
   }
 }
-
-.header-form input:focus + button .search-icon path {
-  fill: orange;
+.header-form input:focus + button svg {
+  fill: #ff6b08;
 }
 
 .header-form button {
   background-color: transparent;
   border: none;
   position: absolute;
-  bottom: 23;
-  right: 20;
+  bottom: 20;
+  right: 15;
   cursor: pointer;
   fill: $white;
   width: 5px;
