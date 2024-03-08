@@ -37,3 +37,59 @@
 .list-btn-header:nth-child(2) {
   border: 1px solid #ffffff;
 }
+.library-header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../images/Rectangle-1x-desktop.jpg');
+}
+
+.sec-cont-header-library {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sec-cont-header-library ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.library-header-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 5rem 2rem;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  padding: 1rem 0rem;
+  background-color: transparent;
+  width: 148px;
+  text-align: center;
+}
+
+.list-btn-header:first-child {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.list-btn-header:nth-child(2) {
+  border: none;
+  box-shadow: 0px 0px 43px 0px rgba(255, 107, 1, 0.6);
+  background-color: #ff6b01;
+  border-radius: 5px;
+}
+
+.first-content-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-content-header {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
