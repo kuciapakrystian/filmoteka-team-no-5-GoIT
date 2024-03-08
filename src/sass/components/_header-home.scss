@@ -133,13 +133,17 @@ a {
 
 .header-form label {
   position: absolute;
-  bottom: 5px;
+  bottom: -1px;
   left: 5px;
   pointer-events: none;
   color: $white;
   font-size: 14px;
   transform-origin: top left;
   font-weight: 400;
+}
+
+.header-form input:focus .header-form button svg {
+  fill: #ff6b08;
 }
 
 .header-form input:focus + label {
@@ -170,7 +174,7 @@ a {
     color: #666;
   }
   to {
-    top: 2;
+    top: 6;
     font-size: 14px;
     color: $white;
   }
@@ -184,8 +188,8 @@ a {
   background-color: transparent;
   border: none;
   position: absolute;
-  bottom: 23;
-  right: 20;
+  bottom: 20;
+  right: 15;
   cursor: pointer;
   fill: $white;
   width: 5px;
