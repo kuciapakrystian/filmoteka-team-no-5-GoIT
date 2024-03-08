@@ -6,10 +6,10 @@ const libraryPage = document.querySelector('.page-library');
 libraryBodyContainer.classList.add('hidden');
 
 const link = document.querySelector('a');
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelectorAll('.js-library, .page-home');
 
-  links.forEach(function (link) {
+  links.forEach(link => {
     link.addEventListener('click', function (event) {
       event.preventDefault();
 
