@@ -28,3 +28,4 @@
     refs.body.classList.toggle('team-open');
   }
 })();
+
