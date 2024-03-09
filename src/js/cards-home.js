@@ -1,7 +1,7 @@
 const apiKey = 'cc5e154eef1a5f4b837eb970b7b620d1';
 const baseUrl = 'https://api.themoviedb.org/3';
 let page = 1;
-const NO_POSTER = `https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png`;
+
 const galleryMovies = document.querySelector('.cards-home-list');
 
 async function fetchPopularMovie(page) {
@@ -73,7 +73,7 @@ async function renderPopularMovies(movies) {
         popularity,
         overview,
       } = movies) => {
-        const poster = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : NO_POSTER;
+        const poster = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : 'Unknown';
         const year = release_date ? release_date.split('-')[0] : 'Unknown';
         const checkGenres = genre_ids ? getGenres(genre_ids, genres) : 'Unknown';
         return `
