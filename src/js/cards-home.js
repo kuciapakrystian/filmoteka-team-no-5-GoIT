@@ -1,40 +1,49 @@
 const apiKey = 'cc5e154eef1a5f4b837eb970b7b620d1';
 const baseUrl = 'https://api.themoviedb.org/3';
 const NO_POSTER = `https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png`;
-const galleryMovies = document.querySelector('.cards-home-list');
+const galleryMovies = document.querySelector('.cards-home-movies');
 let page = 1;
 
 async function fetchPopularMovie(page) {
   const url = new URL(`${baseUrl}/trending/movie/week`);
   url.searchParams.append('api_key', apiKey);
   url.searchParams.append('page', page);
+
   const res = await fetch(url);
   const data = await res.json();
   return data;
 }
+
 async function fetchMostPopularMovies() {
   const url = new URL(`${baseUrl}/trending/movie/day`);
   url.searchParams.append('api_key', apiKey);
+
   const res = await fetch(url);
   const data = await res.json();
   return data;
 }
+
 async function fetchMovieId(id) {
   const url = new URL(`${baseUrl}/movie/${id}`);
   url.searchParams.append('api_key', apiKey);
+
   const res = await fetch(url);
   const data = await res.json();
   return data;
 }
+
 async function fetchGenres() {
   const url = new URL(`${baseUrl}/genre/movie/list`);
   url.searchParams.append('api_key', apiKey);
+
   const res = await fetch(url);
   const data = await res.json();
   return data.genres;
 }
+
 function getGenres(arrayId, genres) {
   const arrayGenres = [];
+
   for (const value of genres) {
     if (arrayId === 'N/A' || arrayId.length === 0) {
       arrayGenres.push('Other');
@@ -43,11 +52,14 @@ function getGenres(arrayId, genres) {
       arrayGenres.push(value.name);
     }
   }
+
   if (arrayGenres.length > 2) {
     arrayGenres.splice(2, arrayGenres.length - 2, 'Other');
   }
+
   return arrayGenres.join(', ');
 }
+
 async function renderPopularMovies(movies) {
   const genres = await fetchGenres();
   return movies
@@ -92,6 +104,7 @@ async function renderPopularMovies(movies) {
     )
     .join('');
 }
+
 fetchPopularMovie(page)
   .then(res => {
     const obj = res.results;
