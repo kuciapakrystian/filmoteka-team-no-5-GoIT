@@ -1,39 +1,34 @@
 const apiKey = 'cc5e154eef1a5f4b837eb970b7b620d1';
+
 const baseUrl = 'https://api.themoviedb.org/3';
-const NO_POSTER = `https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png`;
-const galleryMovies = document.querySelector('.cards-home-movies');
+
 let page = 1;
 
+const NO_POSTER = `https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png`;
+
+const galleryMovies = document.querySelector('.cards-home-list');
+
+
+
+
+
 async function fetchPopularMovie(page) {
+
   const url = new URL(`${baseUrl}/trending/movie/week`);
-  url.searchParams.append('api_key', apiKey);
-  url.searchParams.append('page', page);
 
-  const res = await fetch(url);
+ async function fetchMovieId(id) {
+
   const data = await res.json();
+
   return data;
+
 }
 
-async function fetchMostPopularMovies() {
-  const url = new URL(`${baseUrl}/trending/movie/day`);
-  url.searchParams.append('api_key', apiKey);
-
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-}
-
-async function fetchMovieId(id) {
-  const url = new URL(`${baseUrl}/movie/${id}`);
-  url.searchParams.append('api_key', apiKey);
-
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-}
 
 async function fetchGenres() {
+
   const url = new URL(`${baseUrl}/genre/movie/list`);
+
   url.searchParams.append('api_key', apiKey);
 
   const res = await fetch(url);
@@ -112,4 +107,5 @@ fetchPopularMovie(page)
   })
   .then(res => {
     galleryMovies.insertAdjacentHTML('beforeend', res);
-  });
+  })
+}
