@@ -11,10 +11,11 @@
     opacity 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71);
 
   & .login-input,
-  .modal-card__list-details {
+  .modal-card__list-details, .modal-close {
     color: $night-main-color;
   }
-  & .modal-login-close-btn {
+  & .modal-login-close-btn 
+   {
     fill: $night-second-color;
   }
 
@@ -29,7 +30,8 @@
   & .pagination-button,
   .modal-card,
   .modal__container,
-  .modal-login {
+  .modal-login,
+  .modal-body {
     background-color: $night-main-bg-color;
   }
   & .login-input {
