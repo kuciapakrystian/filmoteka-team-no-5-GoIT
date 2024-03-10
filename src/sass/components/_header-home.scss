@@ -67,6 +67,11 @@ a {
   font-size: 12px;
 }
 
+.link-for-pages:hover {
+  color: #ff6b08;
+  transition: 250ms ease-in;
+}
+
 .active-page-header {
   border-bottom: 1px solid $red;
   border-width: 3px;
@@ -76,15 +81,21 @@ a {
   width: 24px;
   height: 24px;
   fill: transparent;
+  stroke: $white;
 }
 
 .logo-header span {
   font-size: 30px;
   color: $white;
   font-weight: 500;
+  transition: 250ms ease-in;
   @media screen and (max-width: 430px) {
     display: none;
   }
+}
+
+.logo-header span:hover {
+  color: $orange;
 }
 
 .opacity-p-header {
@@ -189,7 +200,7 @@ a {
   background-color: transparent;
   border: none;
   position: absolute;
-  bottom: 20;
+  bottom: 18;
   right: 15;
   cursor: pointer;
   fill: $white;
