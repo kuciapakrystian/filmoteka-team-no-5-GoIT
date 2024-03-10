@@ -6,9 +6,13 @@ import './js/fetch';
 import './js/modal-card';
 import './js/search-form';
 
+
+// import './js/spinner';
+import './js/students-modal'
 import './js/login';
 import './js/login-modal';
 import './js/day-night';
+
 
 import './js/localStorage';
 /* import './js/library';

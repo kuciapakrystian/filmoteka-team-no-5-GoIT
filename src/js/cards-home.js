@@ -1,37 +1,32 @@
 const apiKey = 'cc5e154eef1a5f4b837eb970b7b620d1';
+
 const baseUrl = 'https://api.themoviedb.org/3';
+
 let page = 1;
+
 const galleryMovies = document.querySelector('.cards-home-list');
 
+
+
+
+
 async function fetchPopularMovie(page) {
+
   const url = new URL(`${baseUrl}/trending/movie/week`);
-  url.searchParams.append('api_key', apiKey);
-  url.searchParams.append('page', page);
 
-  const res = await fetch(url);
+ async function fetchMovieId(id) {
+
   const data = await res.json();
+
   return data;
+
 }
 
-async function fetchMostPopularMovies() {
-  const url = new URL(`${baseUrl}/trending/movie/day`);
-  url.searchParams.append('api_key', apiKey);
 
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-}
-
-async function fetchMovieId(id) {
-  const url = new URL(`${baseUrl}/movie/${id}`);
-  url.searchParams.append('api_key', apiKey);
-
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-}
 async function fetchGenres() {
+
   const url = new URL(`${baseUrl}/genre/movie/list`);
+
   url.searchParams.append('api_key', apiKey);
 
   const res = await fetch(url);
@@ -72,7 +67,7 @@ async function renderPopularMovies(movies) {
         popularity,
         overview,
       } = movies) => {
-        const poster = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : 'Unknown';
+        const poster = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : NO_POSTER;
         const year = release_date ? release_date.split('-')[0] : 'Unknown';
         const checkGenres = genre_ids ? getGenres(genre_ids, genres) : 'Unknown';
         return `
@@ -110,4 +105,5 @@ fetchPopularMovie(page)
   })
   .then(res => {
     galleryMovies.insertAdjacentHTML('beforeend', res);
-  });
+  })
+}
