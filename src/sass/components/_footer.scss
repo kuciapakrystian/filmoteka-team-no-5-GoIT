@@ -1,5 +1,7 @@
 .footer{
   background-color: #F7F7F7;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .footer-container{
@@ -9,7 +11,7 @@ justify-content: center;
     margin-right: auto;
     margin-top: 10px;
     padding-bottom: 10px;
-
+align-items: center;
 }
 
 .first-part{
@@ -26,6 +28,27 @@ padding-left: 4px;
 text-decoration: underline;
 }
 
-.heart-footer{
-  padding: 3px;
+.open-modal:hover{
+  color: #ff6b08;
 }
+
+.heart-footer{
+  padding-top: 7px;
+  transition-property: background-color, transform;
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  transition-delay: 0;
+
+}
+
+.heart-footer:hover{
+
+  transform: rotate(360deg);
+}
+
+.footer-text{
+text-align: center;
+line-height: 26px;
+  font-size: 16px;
+}
+
