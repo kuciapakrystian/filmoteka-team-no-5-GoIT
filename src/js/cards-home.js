@@ -1,7 +1,7 @@
 const apiKey = 'cc5e154eef1a5f4b837eb970b7b620d1';
 const baseUrl = 'https://api.themoviedb.org/3';
 let page = 1;
-const galleryMovies = document.querySelector('.cards-home-list');
+const galleryMovie = document.querySelector('.cards-home-list');
 
 async function fetchPopularMovie(page) {
   const url = new URL(`${baseUrl}/trending/movie/week`);
@@ -109,5 +109,5 @@ fetchPopularMovie(page)
     return renderPopularMovies(obj);
   })
   .then(res => {
-    galleryMovies.insertAdjacentHTML('beforeend', res);
+    galleryMovie.insertAdjacentHTML('beforeend', res);
   });
