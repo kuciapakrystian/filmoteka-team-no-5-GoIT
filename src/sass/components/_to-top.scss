@@ -1,0 +1,33 @@
+@use '../utils' as *;
+
+.scroll-top-button {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  border: 0;
+  border-radius: 50%;
+  background: $secondary-accent-cl;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 1000;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.scroll-top-icon {
+  fill: $secondary-text-cl;
+}
