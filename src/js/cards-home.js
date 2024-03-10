@@ -4,8 +4,6 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 let page = 1;
 
-const NO_POSTER = `https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png`;
-
 const galleryMovies = document.querySelector('.cards-home-list');
 
 
