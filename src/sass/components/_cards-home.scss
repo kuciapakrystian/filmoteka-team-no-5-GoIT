@@ -1,0 +1,28 @@
+.cards-home-movie-image {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.cards-home-movie-info {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.cards-home-movie-info span {
+  color: #ff6b08;
+}
+
+.cards-home-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 60px;
+  margin-left: 32px;
+  margin-right: 32px;
+  justify-content: center;
+}
