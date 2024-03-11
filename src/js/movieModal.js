@@ -1,7 +1,7 @@
 fetch('https://api.themoviedb.org/3/movie/550?api_key=4055b791708338774332fbeb5d716522')
     .then(response => response.json())
     .then(data => {
-        console.log(data); // Wyświetlenie danych w konsoli w celu zrozumienia ich struktury i dostępnych pól
+        console.log(data); 
         
         // Aktualizacja danych w modalu
         document.querySelector('.movie-poster').src = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
