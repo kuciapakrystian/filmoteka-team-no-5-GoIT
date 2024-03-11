@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "1.1.0",
   "description": "",
-  "homepage": "https://github.com/kuciapakrystian/filmoteka-team-no-5-GoIT",
+  "homepage": "https://github.com/antoni37/filmoteka-team-no-5-GoIT",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /filmoteka-team-no-5-GoIT/"
