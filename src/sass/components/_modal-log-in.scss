@@ -37,8 +37,10 @@
   background-color: rgb(255, 255, 255);
   padding: 2rem 4rem;
   width: 50rem;
-  gap: 3rem;
+  gap: 2rem;
   position: relative;
+  border-radius: 2rem;
+  border: 1px solid #ff6b08;
 }
 
 .login-form {
@@ -47,12 +49,16 @@
   gap: 1rem;
 }
 
-.login-form input[type='text'],
+.login-form input[type='email'],
 .login-form input[type='password'] {
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  outline: none;
+  &:focus {
+    outline: 0.5px solid #ff6b08;
+  }
 }
 
 .login-form input[type='submit'] {
@@ -63,11 +69,17 @@
   border-radius: 4px;
   cursor: pointer;
   transition: 250ms ease-in;
+  &:hover {
+    background-color: #ff6b08;
+  }
 }
 
-.login-form input[type='submit']:hover {
-  background-color: #ff6b08;
+.form-container h2 {
+  font-size: 40;
 }
+// .login-form input[type='submit']:hover {
+//   background-color: #ff6b08;
+// }
 
 .close-modal-login {
   position: absolute;
@@ -84,8 +96,11 @@
   align-items: center;
   border-radius: 50%;
   transition: 250ms ease-in;
+  &:hover {
+    background-color: #ff6b08;
+  }
 }
 
-.close-modal-login:hover {
-  background-color: #ff6b08;
+.pp-link {
+  color: #ff6b08;
 }
