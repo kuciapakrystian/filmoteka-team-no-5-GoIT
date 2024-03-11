@@ -1,0 +1,151 @@
+@use '../utils/variables' as *;
+.light-theme {
+  color: $main-text-cl;
+  transition: all 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71),
+    opacity 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71);
+}
+.dark-theme {
+  background-color: $night-main-bg-color;
+  color: $night-main-color;
+  transition: all 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71),
+    opacity 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71);
+
+  & .login-input,
+  .modal-card__list-details, .modal-close {
+    color: $night-main-color;
+  }
+  & .modal-login-close-btn 
+   {
+    fill: $night-second-color;
+  }
+
+  & .btn__icon-close {
+    stroke: $night-second-color;
+  }
+  & .pagination-button,
+  .modal-card__votes {
+    color: $night-second-color;
+  }
+
+  & .pagination-button,
+  .modal-card,
+  .modal__container,
+  .modal-login,
+  .modal-body {
+    background-color: $night-main-bg-color;
+  }
+  & .login-input {
+    border-bottom: 2px solid $secondary-accent-cl;
+  }
+  & .activebtn {
+    background-color: $night-second-bg-color;
+  }
+
+  & .footer {
+    background-color: $night-thirth-bg-color;
+  }
+
+  & .pagination-button {
+    box-shadow: $night-main-color;
+    &:hover,
+    &:focus {
+      background-color: $night-second-bg-color;
+      color: $night-thirth-color;
+    }
+  }
+
+  & .activebtn {
+    color: $night-main-color;
+    box-shadow: $night-main-shadow-color;
+    &:hover,
+    &:focus {
+      background-color: $night-second-bg-color;
+      color: $night-thirth-color;
+    }
+  }
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 200px;
+}
+
+.theme-switch {
+  display: flex;
+  align-items: center;
+  position: sticky;
+}
+
+.theme-switch__icon {
+  color: $night-main-color;
+  height: 15px;
+  width: 15px;
+}
+
+.theme-switch__control {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 32px;
+  height: 15px;
+  border-radius: 50em;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.theme-switch__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.theme-switch__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  user-select: none;
+  background-color: $night-main-bg-color;
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71),
+    opacity 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71);
+}
+
+.theme-switch__marker {
+  position: relative;
+  background-color: #fff;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
+  transition: all 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71),
+    opacity 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71);
+}
+
+.theme-switch__toggle:checked + .theme-switch__track {
+  background-color: $night-main-shadow-color;
+}
+
+.theme-switch__toggle:checked ~ .theme-switch__marker {
+  transform: translateX(17px);
+}
+
+.theme-switch__toggle:focus + .theme-switch__track,
+.theme-switch__toggle:active + .theme-switch__track {
+  box-shadow: 0 0 0 3px $night-main-shadow-color;
+}

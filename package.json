@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "1.1.0",
   "description": "",
-  "homepage": "https://github.com/kuciapakrystian/filmoteka-team-no-5-GoIT",
+  "homepage": "https://github.com/antoni37/filmoteka-team-no-5-GoIT",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /filmoteka-team-no-5-GoIT/"
@@ -25,7 +25,7 @@
   "dependencies": {
     "axios": "^1.6.7",
     "buffer": "^6.0.3",
-    "firebase": "^9.17.1-canary.b30186ffc",
+    "firebase": "^9.23.0",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.7",

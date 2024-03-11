@@ -1,1 +1,16 @@
-@import './utils/_index.scss';
+@use './base/common';
+
+@use './utils';
+
+@use './components/day-night';
+@use './components/header-home';
+@use './components/header-library';
+@use './components/cards-home';
+@use './components/cards-library';
+@use './components/pagination';
+@use './components/footer';
+@use './components/modal-log-in';
+@use './components/modal-card';
+@use './components/modal-students';
+@use './components/spinner';
+@use './components/to-top';

@@ -26,7 +26,6 @@ $orange: #ff6b08;
   background-image: url('../images/background-header.png');
   background-size: cover;
   background-position: center;
-  height: 216px;
   padding: 40px;
   font-family: 'Roboto', sans-serif;
   @media screen and (max-width: 768px) {
@@ -68,6 +67,11 @@ a {
   font-size: 12px;
 }
 
+.link-for-pages:hover {
+  color: #ff6b08;
+  transition: 250ms ease-in;
+}
+
 .active-page-header {
   border-bottom: 1px solid $red;
   border-width: 3px;
@@ -77,15 +81,21 @@ a {
   width: 24px;
   height: 24px;
   fill: transparent;
+  stroke: $white;
 }
 
 .logo-header span {
   font-size: 30px;
   color: $white;
   font-weight: 500;
+  transition: 250ms ease-in;
   @media screen and (max-width: 430px) {
     display: none;
   }
+}
+
+.logo-header span:hover {
+  color: $orange;
 }
 
 .opacity-p-header {
@@ -100,6 +110,10 @@ a {
   }
 }
 
+.opacity-p-header:hover {
+  cursor: context-menu;
+}
+
 #inputSearch {
   border: none;
   outline: none;
@@ -107,6 +121,8 @@ a {
   border-bottom: 0.5px solid $white;
   width: 394px;
   color: $white;
+  font-size: 14px;
+  font-weight: 400;
   padding: 5px 30px 5px 5px;
   transition: 250ms ease-in-out;
   @media screen and (max-width: 430px) {
@@ -130,13 +146,17 @@ a {
 
 .header-form label {
   position: absolute;
-  bottom: 5px;
+  bottom: -1px;
   left: 5px;
   pointer-events: none;
   color: $white;
   font-size: 14px;
   transform-origin: top left;
   font-weight: 400;
+}
+
+.header-form input:focus button svg {
+  fill: #ff6b08;
 }
 
 .header-form input:focus + label {
@@ -156,7 +176,7 @@ a {
   to {
     top: -1.5rem;
     font-size: 0.8em;
-    color: #666;
+    color: #ff6b08;
   }
 }
 
@@ -167,22 +187,21 @@ a {
     color: #666;
   }
   to {
-    top: 2;
+    top: 6;
     font-size: 14px;
     color: $white;
   }
 }
-
-.header-form input:focus + button .search-icon path {
-  fill: orange;
+.header-form input:focus + button svg {
+  fill: #ff6b08;
 }
 
 .header-form button {
   background-color: transparent;
   border: none;
   position: absolute;
-  bottom: 23;
-  right: 20;
+  bottom: 18;
+  right: 15;
   cursor: pointer;
   fill: $white;
   width: 5px;
