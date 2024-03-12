@@ -1,22 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector(".header-form");
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const inputSearch = document.getElementById("inputSearch").value;
-        searchMovies(inputSearch);
-    });
-
-    // Nasłuchiwanie kliknięcia na linkach
-    const links = document.querySelectorAll(".logo-header, .link-for-pages");
-    links.forEach(link => {
-        link.addEventListener("click", function(event) {
-            event.preventDefault();
-            clearSearchAndReloadMovies();
-            window.location.reload(); // Przeładowanie strony po kliknięciu w link
-        });
-    });
-});
-
 function loadDefaultMovies() {
     const apiKey = "4055b791708338774332fbeb5d716522";
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
@@ -33,8 +14,15 @@ function searchMovies(query) {
 
     fetch(url)
         .then(response => response.json())
-        .then(data => displayResults(data))
+        .then(data => {
+            displayResults(data);
+            clearSearchInput(); 
+        })
         .catch(error => console.error("Error while searching for movies:", error));
+}
+
+function clearSearchInput() {
+    document.getElementById("inputSearch").value = "";
 }
 
 function displayResults(data) {
@@ -49,12 +37,16 @@ function displayResults(data) {
     data.results.forEach(movie => {
         const movieItem = document.createElement("li");
         movieItem.classList.add("card-home-item");
+        
+        const genres = movie.genre_ids.join(", ");
+        const releaseDate = new Date(movie.release_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
         movieItem.innerHTML = `
             <div class="card">
                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" class="card-img">
                 <div class="card-info">
                     <h3 class="card-title">${movie.title}</h3>
-                    <p class="card-description">${movie.overview}</p>
+                    <p class="card-description">Genres: ${genres} | Release Date: ${releaseDate}</p>
                 </div>
             </div>
         `;
@@ -63,10 +55,27 @@ function displayResults(data) {
 }
 
 function clearSearchAndReloadMovies() {
-    // Czyszczenie pola wyszukiwania
     document.getElementById("inputSearch").value = "";
-
-    // Usuwanie wyników wyszukiwania
     const list = document.querySelector(".cards-home-list");
     list.innerHTML = "";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector(".header-form");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const inputSearch = document.getElementById("inputSearch").value;
+        searchMovies(inputSearch);
+    });
+
+    const links = document.querySelectorAll(".logo-header, .link-for-pages");
+    links.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            clearSearchAndReloadMovies();
+            window.location.reload(); 
+        });
+    });
+});
+
+
