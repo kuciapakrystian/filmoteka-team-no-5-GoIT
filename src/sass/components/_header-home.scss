@@ -54,6 +54,9 @@ $orange: #ff6b08;
   list-style: none;
   gap: 2.5rem;
   align-items: center;
+  @media (max-width: 380px) {
+    gap: 1.5rem;
+  }
 }
 
 a {
@@ -89,7 +92,7 @@ a {
   color: $white;
   font-weight: 500;
   transition: 250ms ease-in;
-  @media screen and (max-width: 430px) {
+  @media screen and (max-width: 470px) {
     display: none;
   }
 }
@@ -254,10 +257,27 @@ a {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 500;
+  display: block;
   border-radius: 2rem;
   transition: 250ms ease-in;
   box-shadow: 0px 0px 43px 0px rgba(255, 107, 1, 0.6);
   &:hover {
     background-color: #d45e0f;
+  }
+  @media (max-width: 510px) {
+    padding: 5px;
+  }
+}
+
+.login-paragraph {
+  @media (max-width: 510px) {
+    display: none;
+  }
+}
+
+.login-img-container img {
+  display: none;
+  @media (max-width: 510px) {
+    display: block;
   }
 }
