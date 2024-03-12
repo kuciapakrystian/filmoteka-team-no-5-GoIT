@@ -93,8 +93,9 @@ body.team-open {
   text-align: center;
 }
 
-.team-one:hover{
+.team-photo:hover{
   transform: scale(1.15);
+box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
 }
 
 .team-photo {
@@ -103,3 +104,5 @@ body.team-open {
   border-radius: 35%;
   border: 2px solid #ff6b08;
 }
+
+
