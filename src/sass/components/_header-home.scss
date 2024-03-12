@@ -54,6 +54,9 @@ $orange: #ff6b08;
   list-style: none;
   gap: 2.5rem;
   align-items: center;
+  @media (max-width: 380px) {
+    gap: 1.5rem;
+  }
 }
 
 a {
@@ -89,7 +92,7 @@ a {
   color: $white;
   font-weight: 500;
   transition: 250ms ease-in;
-  @media screen and (max-width: 430px) {
+  @media screen and (max-width: 470px) {
     display: none;
   }
 }
@@ -215,34 +218,66 @@ a {
   align-items: center;
 }
 
+// .login-img-container {
+//   background-color: white;
+//   width: 30px;
+//   height: 30px;
+//   position: absolute;
+//   left: 225;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   cursor: pointer;
+//   border-radius: 50%;
+//   padding: 5px;
+//   top: 43;
+//   transition: 250ms ease-in;
+//   @media (max-width: 470px) {
+//     left: 210;
+//     top: 45;
+//     width: 25px;
+//     height: 25px;
+//   }
+//   @media (max-width: 430px) {
+//     left: 70;
+//     top: 40;
+//     width: 25px;
+//     height: 25px;
+//   }
+// }
+
+// .login-img-container:hover {
+//   background-color: #ff6b08;
+// }
+
 .login-img-container {
-  background-color: white;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  left: 225;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 5px;
-  top: 43;
+  background-color: #ff6b08;
+  color: white;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+  border-radius: 2rem;
   transition: 250ms ease-in;
-  @media (max-width: 470px) {
-    left: 210;
-    top: 45;
-    width: 25px;
-    height: 25px;
+  box-shadow: 0px 0px 43px 0px rgba(255, 107, 1, 0.6);
+  &:hover {
+    background-color: #d45e0f;
   }
-  @media (max-width: 430px) {
-    left: 70;
-    top: 40;
-    width: 25px;
-    height: 25px;
+  @media (max-width: 510px) {
+    padding: 5px;
   }
 }
 
-.login-img-container:hover {
-  background-color: #ff6b08;
+.login-paragraph {
+  @media (max-width: 510px) {
+    display: none;
+  }
+}
+
+.login-img-container img {
+  display: none;
+  @media (max-width: 510px) {
+    display: block;
+  }
 }

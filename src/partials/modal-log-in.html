@@ -1,13 +1,36 @@
 <div class="login-container">
 
     <div class="form-container">
-        <h2>Login Form</h2>
-        <button class="close-modal-login">x</button>
+        <h2>Log in!</h2>
+        <hr class="login-hr">
+        <ul class="icons-social-list">
+            <li><a href="">
+                    <svg width="30" height="30">
+                        <use href="./images/social-icons.svg#icon-facebook"></use>
+                    </svg></a></li>
+            <li><a href="">
+                    <svg width="30" height="30">
+                        <use href="./images/social-icons.svg#icon-instagram"></use>
+                    </svg></a></li>
+            <li><a href="">
+                    <svg width="30" height="30">
+                        <use href="./images/social-icons.svg#icon-whatsapp"></use>
+                    </svg></a></li>
+        </ul>
+        <button class="close-modal-login">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                class="close-modal-login">
+                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" />
+                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" />
+            </svg>
+        </button>
         <form class="login-form" action="#" method="post">
             <input type="email" name="username" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Login">
+
         </form>
-        <p>By logging into the website, I hereby agree to accept the <a href="" class="pp-link">Privacy Policy</a></p>
+        <p class="form-p">Not acount yet? <a href="" class="pp-link">Sing up!</a></p>
+
     </div>
 </div>
