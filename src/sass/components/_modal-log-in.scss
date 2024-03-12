@@ -143,6 +143,10 @@
   &:hover {
     fill: #ff6b08;
   }
+  @media (max-width: 500px) {
+    top: 8;
+    right: 8;
+  }
 }
 
 .pp-link {
