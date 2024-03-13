@@ -1,0 +1,78 @@
+{
+  "name": "notiflix",
+  "main": "dist/notiflix-aio-3.2.7.min.js",
+  "types": "index.d.ts",
+  "version": "3.2.7",
+  "description": "Notiflix is a pure JavaScript library for client-side non-blocking notifications, popup boxes, loading indicators, and more...",
+  "homepage": "https://github.com/notiflix/Notiflix",
+  "files": [
+    "index.d.ts",
+    "build",
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "notification",
+    "notifications",
+    "notiflix",
+    "notify",
+    "toast",
+    "alert",
+    "popup boxes",
+    "loading indicator",
+    "javascript alert",
+    "javascript confirm",
+    "confirm box",
+    "ui block",
+    "block ui element",
+    "react notifications",
+    "angular notifications",
+    "nextjs notifications",
+    "client-side",
+    "non-blocking",
+    "zero dependency"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notiflix/Notiflix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/notiflix/Notiflix/issues"
+  },
+  "author": "Furkan (https://github.com/furcan)",
+  "contributors": [
+    "Furkan (https://github.com/furcan)"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/jest": "^27.0.2",
+    "@types/puppeteer": "^5.4.4",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "babel-jest": "^27.3.1",
+    "babel-minify": "^0.5.1",
+    "clean-css": "^5.2.2",
+    "eslint": "^7.32.0",
+    "jest": "^27.3.1",
+    "puppeteer-core": "^11.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "test": "jest",
+    "notiflix:dev:eslint:typescript": "eslint -c .dev/.eslintrc.js index.d.test.ts test",
+    "notiflix:dev:eslint:helpers": "eslint -c .dev/.eslintrc.json .dev",
+    "notiflix:dev:lint": "yarn notiflix:dev:eslint:typescript && yarn notiflix:dev:eslint:helpers",
+    "notiflix:src:stylelint": "stylelint src/notiflix.css",
+    "notiflix:src:eslint": "eslint -c .eslintrc.json src/notiflix.js",
+    "notiflix:src:lint": "yarn notiflix:src:stylelint && yarn notiflix:src:eslint",
+    "notiflix:build": "yarn notiflix:dev:lint && yarn notiflix:src:lint && node .dev/notiflix-dev-builder.js",
+    "notiflix:build:eslint": "eslint -c .eslintrc.json build/**/*.js && eslint -c .dev/.eslintrc.js build/**/*.ts",
+    "notiflix:minifier": "yarn notiflix:build && yarn notiflix:build:eslint && node .dev/notiflix-dev-minifier.js",
+    "notiflix": "yarn notiflix:minifier"
+  }
+}

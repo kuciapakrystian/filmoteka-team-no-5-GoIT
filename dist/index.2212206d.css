@@ -1,0 +1,103 @@
+.btn {
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 112.58px;
+  height: 44px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  display: block;
+}
+
+.btn__addToWatched {
+  color: #fff;
+  transition: box-shadow 500 ease-in-out, scale 500 ease-in-out;
+  background: #ff6b01;
+  border: 1px solid #ff6b01;
+}
+
+.btn__addToWatched:hover {
+  scale: 1.1;
+  box-shadow: 2px 4px 14px -2px #d47719;
+}
+
+.btn__addToQue {
+  transition: box-shadow 500 ease-in-out, scale 500 ease-in-out;
+  background: #fff;
+}
+
+.btn__addToQue:hover {
+  scale: 1.1;
+  box-shadow: 2px 4px 24px -2px #d47719;
+}
+
+.btn--close {
+  background-color: #0000;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  transition: transform .5s;
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transform: rotate(0);
+}
+
+.btn--close:hover {
+  transform: rotate(-90deg);
+}
+
+.btn__icon-close {
+  stroke: #000;
+  width: 30px;
+  height: 30px;
+}
+
+.btn--play {
+  background-color: #ffffffb3;
+  border: 0;
+  border-radius: 50%;
+  justify-content: center;
+  align-self: baseline;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  padding: 4px;
+  display: flex;
+  position: absolute;
+  left: calc(7vw + 10px);
+}
+
+.btn__icon-play {
+  fill: green;
+  width: 50px;
+  height: 50px;
+}
+
+@media screen and (width >= 400px) {
+  .btn--play {
+    left: 30px;
+  }
+}
+
+@media screen and (width >= 600px) {
+  .btn--play {
+    left: 40px;
+  }
+}
+
+@media screen and (width >= 650px) {
+  .btn--play {
+    left: 50px;
+  }
+}
+/*# sourceMappingURL=index.2212206d.css.map */
