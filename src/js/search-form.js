@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
         searchMovies(inputSearch);
     });
 
-    const links = document.querySelectorAll(".logo-header, .link-for-pages");
+    const links = document.querySelectorAll(".logo-header, .active-page-header");
     links.forEach(link => {
         link.addEventListener("click", function(event) {
             event.preventDefault();
