@@ -122,6 +122,25 @@
   }
 }
 
+.sing-out-btn {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 1rem 4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 250ms ease-in;
+  letter-spacing: 2px;
+  font-weight: 600;
+  border-radius: 1rem;
+  display: none;
+  &:hover {
+    background-color: #ff6b08;
+  }
+  @media (max-width: 490px) {
+    width: 100%;
+  }
+}
 .form-container h2 {
   font-size: 40;
 }
