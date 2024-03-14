@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><link rel="stylesheet" href="/index.2212206d.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="the best site to search for popular movies">
+  <meta name="keywords" content="movie, movies, film, genres, popularity movies">
+  <meta name="robots" content="index,follow">
+  <title>Filmoteka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mynerve&family=Raleway:wght@500&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.30f7f635.svg" type="image/x-icon">
+  <link rel="stylesheet" href="/index.b07a87f3.css">
+</head>
+
+<body>
+  <!--WSZYSTKO JEST DODANE!!! PROSZĘ JUŻ NIŻEJ NIC NIE WKLEJAĆ, NAWET PLIKÓW Z JS, DZIĘKI!-->
+  <div class="content-wrap">
+    <button id="scroll-top-button" class="scroll-top-button" type="button">
+    <svg class="scroll-top-icon" width="30px" height="30px">
+        <use href="/totop.df53644c.svg#icon-arrow-thick-up"></use>
+    </svg>
+</button>
+    <header class="home-header">
+    <div class="first-header-container">
+        <div class="first-content-header">
+            <a href="/index.html" class="logo-header">
+                <svg>
+                    <use href="/icons.adfc4680.svg#film"></use>
+                </svg>
+                <span>Filmoteka</span>
+            </a>
+
+            <nav class="header-navigation">
+
+                <ul>
+                    <li>
+                        <a href="/index.html" class="link-for-pages active-page-header ">home</a>
+                    </li>
+                    <li>
+                        <a href="/library.html" class="link-for-pages js-library">my library</a>
+                    </li>
+                    <li><a href="" class="login-img-container">
+                            <p class="login-paragraph">Log in</p>
+                            <img src="/user.cc753810.png" alt="" width="15" height="15">
+                        </a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="toolbar">
+            <div class="theme-switch">
+                <svg class="theme-switch__icon">
+                    <use href="/sprite.15147c25.svg#sun"></use>
+                </svg>
+
+                <div class="theme-switch__control">
+                    <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle">
+                    <label class="theme-switch__track" for="theme-switch-toggle"> </label>
+                    <div class="theme-switch__marker"></div>
+                </div>
+
+                <svg class="theme-switch__icon">
+                    <use href="/sprite.15147c25.svg#moon"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="second-content-header">
+            <div class="div-input-header">
+                <form action="" class="header-form">
+                    <input type="text" id="inputSearch">
+                    <label for="inputSearch">Movie search</label>
+                    <button type="submit">
+                        <svg width="15" height="15" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.5 9.5C7.70914 9.5 9.5 7.70914 9.5 5.5C9.5 3.29086 7.70914 1.5 5.5 1.5C3.29086 1.5 1.5 3.29086 1.5 5.5C1.5 7.70914 3.29086 9.5 5.5 9.5Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10.5 10.5002L8.32495 8.3252" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+
+                    </button>
+                </form>
+                <p class="opacity-p-header">Search result not successful. Enter the correct movie name and try again.
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+    <!-- preloader / spinner -->
+<div id="preloader"></div>
+    <div class="cards-home-container">
+  <ul class="cards-home-list"></ul>
+</div>
+
+    <ul class="pagination" id="pagination"></ul>
+  </div>
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="first-part">
+      <p class="footer-text">© 2024 | All Rights Reserved |</p>
+    </div>
+
+    <div class="second-part">
+      <p class="footer-text">Developed with</p>
+      <div class="heart-footer"><img src="/Heart.d0f25e86.svg" alt=""></div>
+      <p class="footer-text">
+        by <a href="#" data-modal-open="" class="open-modal"> GoIT students </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <div class="login-container">
+
+    <div class="form-container">
+        <h2>Log in!</h2>
+        <hr class="login-hr">
+        <ul class="icons-social-list">
+            <li><a href="">
+                    <svg width="30" height="30">
+                        <use href="/social-icons.4df27350.svg#icon-facebook"></use>
+                    </svg></a></li>
+            <li><a href="">
+                    <svg width="30" height="30">
+                        <use href="/social-icons.4df27350.svg#icon-instagram"></use>
+                    </svg></a></li>
+            <li><a href="">
+                    <svg width="30" height="30">
+                        <use href="/social-icons.4df27350.svg#icon-whatsapp"></use>
+                    </svg></a></li>
+        </ul>
+        <button class="close-modal-login">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="close-modal-login">
+                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"></line>
+                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"></line>
+            </svg>
+        </button>
+        <form class="login-form" action="#" method="post">
+            <input type="email" name="username" placeholder="Email" required="">
+            <input type="password" name="password" placeholder="Password" required="">
+            <input type="submit" value="Login">
+
+        </form>
+        <button class="sing-out-btn">Sing out</button>
+        <p class="form-p">Not acount yet? <a href="" class="pp-link">Sing up!</a></p>
+
+    </div>
+</div>
+  
+
+  <div class="modal is-hidden" data-modal="">
+  <div class="modal-body">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="modal-close" data-modal-close="">
+                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"></line>
+                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"></line>
+            </svg>
+    <h2 class="modal-team-title">Our Team</h2>
+    <ul class="team-list">
+      <li class="team-one">
+        <img class="team-photo" src="/photo_2023-12-01_14-49-50_720%20(1).e2139004.jpg" alt="">
+        <h3>Krystian</h3>
+        <p>Front Dev</p>
+      </li>
+      <li class="team-one">
+        <img class="team-photo" src="/124610719_114571890458127_4078634237841751645_n.307811dd.jpg" alt="">
+        <h3>Marek</h3>
+        <p>Front Dev</p>
+      </li>
+      <li class="team-one">
+        <img class="team-photo" src="/4149074c-0bf1-4dfb-afd8-c2dc3a840bd6_720.9e8a3684.jpg" alt="">
+        <h3>Kasia</h3>
+        <p>Front Dev</p>
+      </li>
+      <li class="team-one">
+        <img class="team-photo" src="/img_0006_720%20(1).ecffeb50.jpg" alt="">
+        <h3>Klaudia</h3>
+        <p>Front Dev</p>
+      </li>
+      <li class="team-one">
+        <img class="team-photo" src="/image.8d5085cd.png" alt="">
+        <h3>Maciek</h3>
+        <p>Front Dev</p>
+      </li>
+      <li class="team-one">
+        <img class="team-photo" src="/kp_720.ef319cae.jpg" alt="">
+        <h3>Lucy</h3>
+        <p>Front Dev</p>
+      </li>
+      <li class="team-one">
+        <img class="team-photo" src="/img_20190422_115447_720.d1ea9604.jpg" alt="">
+        <h3>Anton</h3>
+        <p>Front Dev</p>
+      </li>
+      <li class="team-one">
+        <img class="team-photo" src="/image_from_ios_720.6fca6dfc.jpg" alt="">
+        <h3>Klaudia</h3>
+        <p>Front Dev</p>
+      </li>
+      <li class="team-one">
+        <img class="team-photo" src="/csgogoit_360.fe58d56c.png" alt="">
+        <h3>Konrad</h3>
+        <p>Front Dev</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <script src="/index.975ef6c8.js" defer=""></script>
+
+</body>
+
+
+</html>
