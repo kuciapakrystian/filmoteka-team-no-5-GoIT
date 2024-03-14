@@ -42,20 +42,33 @@ function displayResults(data, genres) {
 
   data.results.forEach(movie => {
     const movieItem = document.createElement('li');
-    movieItem.classList.add('card-home-item');
+    movieItem.classList.add('cards-home-movie_list_item');
 
-    const Checkgenres = getGenres(movie.genre_ids, genres);
-
+    const checkGenres = getGenres(movie.genre_ids, genres);
+    const poster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     const releaseDate = movie.release_date.split('-')[0];
 
     movieItem.innerHTML = `
-            <div class="cards-home-movie-link">
-                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" class="cards-home-movie-image">
-                <div class="cards-home-movie-info">
-                    <h3 class="card-title">${movie.title}</h3>
-                    <span class="cards-home-movie-date">${Checkgenres} | ${releaseDate}</span>
-                </div>
-            </div>
+    <div href="" class='cards-home-movie-link'>
+    <div class="cards-home-movie-photo"
+      data-poster_path="${movie.poster_path}"
+      data-title="${movie.title}"
+      data-genre_ids="${checkGenres}"
+      data-original_title="${movie.original_title}"
+      data-release_date="${movie.release_date}"
+    ></div>
+      <img class="cards-home-movie-image" src=${poster} alt='Poster ${
+      movie.original_title
+    }' loading='lazy' />
+      <div class='cards-home-movie-info'>
+          <p class='cards-home-movie-title'>
+            <b>${movie.title.toUpperCase()}</b>
+          </p>
+          <p class='cards-home-movie-date'>
+            <span>${checkGenres} | ${releaseDate}</span>
+          </p>
+      </div>
+      </div>
         `;
     list.appendChild(movieItem);
   });
