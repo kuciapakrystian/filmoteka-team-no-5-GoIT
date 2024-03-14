@@ -1,0 +1,49 @@
+.cards-home-movie-image {
+  border-radius: 12px;
+  width: 395px;
+  height: 574px;
+}
+
+.cards-home-movie-info {
+  text-transform: uppercase;
+  color: #000;
+  flex-grow: 1;
+  padding-top: 8px;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.cards-home-movie-info span {
+  color: #ff6b08;
+}
+
+.cards-home-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 60px;
+  margin-left: 32px;
+  margin-right: 32px;
+  display: flex;
+}
+
+.cards-home-movie_list_item {
+  transition: all .3s ease-in-out;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transform: scale(1);
+}
+
+.cards-home-movie-image:hover, .cards-home-movie-image:focus {
+  cursor: pointer;
+  transition: all .25s;
+  transform: scale(1.2);
+}
+
+.cards-home-movie-link, .cards-home-movie_list_item {
+  border-radius: 12px;
+}
+/*# sourceMappingURL=index.2212206d.css.map */
