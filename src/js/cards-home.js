@@ -30,6 +30,7 @@ async function fetchMovieId(id) {
   const data = await res.json();
   return data;
 }
+
 async function fetchGenres() {
   const url = new URL(`${baseUrl}/genre/movie/list`);
   url.searchParams.append('api_key', apiKey);
@@ -111,3 +112,5 @@ fetchPopularMovie(page)
   .then(res => {
     galleryMovie.insertAdjacentHTML('beforeend', res);
   });
+
+export { fetchGenres, getGenres };
