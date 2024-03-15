@@ -6453,8 +6453,224 @@ function convertOffset(x, y, degrees) {
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bT6UK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "screenWidth", ()=>screenWidth);
+parcelHelpers.export(exports, "generatePageButtons", ()=>generatePageButtons);
+// Page buttons logic ------------------------------------------
+// Set class activebtn to a selected page for indicating
+parcelHelpers.export(exports, "setActivePage", ()=>setActivePage);
+// Limit page buttons displayed on load
+parcelHelpers.export(exports, "limitDisplayedButtons", ()=>limitDisplayedButtons);
+// Show page buttons around a selected page
+parcelHelpers.export(exports, "renderPageButtons", ()=>renderPageButtons);
+// show less buttons to fit mobiles
+parcelHelpers.export(exports, "mobileFit", ()=>mobileFit);
+var _fetch = require("./fetch");
+var _refreshrendering = require("./refreshrendering");
+var _searchForm = require("./search-form");
+var _spinner = require("./spinner");
+const screenWidth = screen.width;
+const paginationContainer = document.getElementById("pagination-numbers");
+paginationContainer.innerHTML = "";
+function generatePageButtons(totalPages, selectedPage) {
+    (0, _refreshrendering.refreshRenderingPagination)();
+    //do not render if nothing to render
+    if (totalPages === 0) return;
+    // generate buttons according to a totalPages variable
+    for(let i = 1; i <= totalPages; i++){
+        const pageBtn = document.createElement("button");
+        pageBtn.setAttribute("type", "button");
+        pageBtn.setAttribute("value", `${i}`);
+        pageBtn.setAttribute("id", `page${i}`);
+        pageBtn.classList.add("pagination-button");
+        pageBtn.innerText = i;
+        if (totalPages === 1) pageBtn.setAttribute("disabled", true);
+        paginationContainer.append(pageBtn);
+    }
+    // handle how many buttons to show on start --------------
+    limitDisplayedButtons(totalPages);
+    // first button
+    // on first search (page 1) it makes page button 1 active
+    const firstBtn = document.getElementById("page1");
+    //firstBtn.classList.remove('visible');
+    if (firstBtn) firstBtn.classList.add("activebtn");
+    // last button
+    const lastBtn = document.getElementById(`page${totalPages}`);
+    // generate Arrow Prev & Next buttons ------------------------
+    const prevBtn = document.createElement("button");
+    prevBtn.setAttribute("type", "button");
+    prevBtn.setAttribute("value", `${selectedPage}`);
+    prevBtn.setAttribute("id", "prevButton");
+    prevBtn.classList.add("pagination-button");
+    prevBtn.classList.add("pagination-arrow-btn");
+    prevBtn.innerHTML = "&lt;-";
+    paginationContainer.prepend(prevBtn);
+    const nextBtn = document.createElement("button");
+    nextBtn.setAttribute("type", "button");
+    nextBtn.setAttribute("value", `${selectedPage}`);
+    nextBtn.setAttribute("id", "nextButton");
+    nextBtn.classList.add("pagination-button");
+    nextBtn.classList.add("pagination-arrow-btn");
+    nextBtn.innerHTML = "-&gt;";
+    paginationContainer.append(nextBtn);
+    if (totalPages === 1) {
+        prevBtn.setAttribute("disabled", true);
+        nextBtn.setAttribute("disabled", true);
+    }
+    // generate ellipsis (...) buttons --------------------
+    const backwardEllipsisBtn = document.createElement("button");
+    backwardEllipsisBtn.setAttribute("type", "button");
+    backwardEllipsisBtn.setAttribute("value", `${selectedPage}`);
+    backwardEllipsisBtn.setAttribute("id", "prevStepButton");
+    backwardEllipsisBtn.classList.add("pagination-button");
+    backwardEllipsisBtn.classList.add("pagination-ellipsis");
+    backwardEllipsisBtn.innerHTML = "...";
+    const forwardEllipsisBtn = document.createElement("button");
+    forwardEllipsisBtn.setAttribute("type", "button");
+    forwardEllipsisBtn.setAttribute("value", `${selectedPage}`);
+    forwardEllipsisBtn.setAttribute("id", "nextStepButton");
+    forwardEllipsisBtn.classList.add("pagination-button");
+    forwardEllipsisBtn.classList.add("pagination-ellipsis");
+    forwardEllipsisBtn.innerHTML = "...";
+    firstBtn.after(backwardEllipsisBtn);
+    lastBtn.before(forwardEllipsisBtn);
+    // Hide ellipsis for less pages
+    if (totalPages < 4) forwardEllipsisBtn.classList.add("hidden");
+    if (lastBtn) {
+        if (screenWidth < 440) lastBtn.classList.add("hidden");
+        else lastBtn.classList.remove("hidden");
+    }
+    limitDisplayedButtons(totalPages);
+    mobileFit(totalPages);
+    renderPageButtons(selectedPage, totalPages);
+    handleVisibilityOfEllipisButtons(selectedPage, totalPages);
+    setActivePage(selectedPage);
+}
+function setActivePage(currentPage) {
+    const elementActive = document.querySelector(".activebtn");
+    if (elementActive) {
+        elementActive.classList.remove("activebtn");
+        elementActive.classList.add("visible");
+    }
+    const activeBtn = document.getElementById(`page${currentPage}`);
+    if (activeBtn) activeBtn.classList.add("activebtn");
+}
+function limitDisplayedButtons(totalPages) {
+    if (totalPages > 4) for(let i = 5; i < totalPages; i++){
+        const hideButton = document.getElementById(`page${i}`);
+        hideButton.classList.add("hidden");
+    }
+}
+function renderPageButtons(selectedPage, totalPages) {
+    for(let i = 2; i < totalPages; i++){
+        const hideButton = document.getElementById(`page${i}`);
+        if (hideButton) hideButton.classList.add("hidden");
+    }
+    for(let i = selectedPage - 2; i <= selectedPage + 2; i++){
+        const showButton = document.getElementById(`page${i}`);
+        if (showButton) showButton.classList.remove("hidden");
+    }
+}
+function mobileFit(pagesAmount) {
+    const screenWidth = screen.width;
+    if (screenWidth < 440) {
+        const hideBackwardEllipsis = document.getElementById("prevStepButton");
+        hideBackwardEllipsis.classList.add("hidden");
+        const hideForwardEllipsis = document.getElementById("nextStepButton");
+        hideForwardEllipsis.classList.add("hidden");
+        for(let i = 1; i <= pagesAmount; i++){
+            const hideButton = document.getElementById(`page${i}`);
+            if (hideButton) hideButton.classList.add("hidden");
+        }
+    }
+}
+// Ellipsis buttons show/hide logic
+function handleVisibilityOfEllipisButtons(selectedPage, totalPages) {
+    const backwardEllipsisBtn = document.getElementById("prevStepButton");
+    const forwardEllipsisBtn = document.getElementById("nextStepButton");
+    if (totalPages < 4) {
+        backwardEllipsisBtn.classList.add("hidden");
+        forwardEllipsisBtn.classList.add("hidden");
+        return;
+    }
+    if (screenWidth < 440) {
+        backwardEllipsisBtn.classList.add("hidden");
+        forwardEllipsisBtn.classList.add("hidden");
+        return;
+    }
+    if (selectedPage <= 4) {
+        backwardEllipsisBtn.classList.add("hidden");
+        forwardEllipsisBtn.classList.remove("hidden");
+    }
+    if (selectedPage > 4 && selectedPage < totalPages - 4) {
+        backwardEllipsisBtn.classList.remove("hidden");
+        forwardEllipsisBtn.classList.remove("hidden");
+    }
+    if (selectedPage >= totalPages - 4) {
+        forwardEllipsisBtn.classList.add("hidden");
+        backwardEllipsisBtn.classList.remove("hidden");
+    }
+}
+//--------------------------------------------------//
+// LISTENER
+// -------------------------------------------------//
+paginationContainer.addEventListener("click", (event)=>{
+    if (event.target.tagName != "BUTTON") return;
+    let selectedPage = Number(event.target.value);
+    // Prev and Next buttons logic --------------------------
+    // handle 'previous' button, one click = one page backward
+    if (event.target.id === "prevButton") {
+        if (selectedPage === 1) return;
+        else selectedPage -= 1;
+    }
+    //handle 'next' button, one click = one page forward
+    if (event.target.id === "nextButton") {
+        if (selectedPage === (0, _fetch.totalPages)) return;
+        else selectedPage += 1;
+    }
+    // Ellipsis buttons 10-page step logic -------------------------------
+    // Step backward
+    if (event.target.id === "prevStepButton") {
+        if (selectedPage <= 10) return;
+        else selectedPage -= 10;
+    }
+    // Step forward
+    if (event.target.id === "nextStepButton") {
+        if (selectedPage > (0, _fetch.totalPages) - 10) return;
+        else {
+            selectedPage += 10;
+            const forwardEllipsisBtn = document.getElementById("nextStepButton");
+            forwardEllipsisBtn.setAttribute("value", `${selectedPage}`);
+        }
+    }
+    if ((0, _fetch.PAGINATION_STATE) === "popular") {
+        (0, _spinner.preloader).classList.remove("hidden");
+        (0, _refreshrendering.refreshRendering)();
+        (0, _refreshrendering.refreshRenderingPagination)();
+        setTimeout(()=>{
+            (0, _fetch.getInitialMovies)(selectedPage).then((data)=>{
+                (0, _spinner.preloader).classList.add("hidden");
+            }).catch(function(error) {
+            // handle error
+            });
+        }, 500);
+    } else if ((0, _fetch.PAGINATION_STATE) === "search") {
+        (0, _spinner.preloader).classList.remove("hidden");
+        (0, _refreshrendering.refreshRendering)();
+        (0, _refreshrendering.refreshRenderingPagination)();
+        setTimeout(()=>{
+            (0, _fetch.getSearchedMovies)((0, _searchForm.searchInput), selectedPage).then((data)=>{
+                (0, _spinner.preloader).classList.add("hidden");
+            }).catch(function(error) {
+            // handle error
+            });
+        }, 500);
+    }
+    return selectedPage;
+});
 
-},{}],"2yd8E":[function(require,module,exports) {
+},{"./fetch":"3MHo1","./refreshrendering":"8mtAC","./search-form":"dt3tW","./spinner":"e4vVD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2yd8E":[function(require,module,exports) {
 
 },{}],"47T64":[function(require,module,exports) {
 
