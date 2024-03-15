@@ -1,0 +1,67 @@
+@use '../utils' as *;
+.cards-container {
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 280px;
+}
+.movie-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  transition: transform 250ms;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  &__img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px rgb(107, 102, 98);
+  }
+  &__title {
+    font-size: 12px;
+    text-transform: uppercase;
+    flex-grow: 1;
+    padding-top: 8px;
+  }
+  &__info {
+    color: $secondary-accent-cl;
+  }
+  &__rating {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: $secondary-accent-cl;
+    color: $secondary-text-cl;
+    padding: 0px 5px;
+    border-radius: 5px;
+  }
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+}
+@media (min-width: 768px) {
+  .cards-container {
+    max-width: 617px;
+    margin-top: 60px;
+  }
+  .movie-card {
+    width: 290px;
+  }
+}
+@media (min-width: 1024px) {
+  .cards-container {
+    max-width: 882px;
+  }
+  .movie-card {
+    width: 274px;
+  }
+}
