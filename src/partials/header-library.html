@@ -1,0 +1,45 @@
+<!-- header for library page -->
+
+<header class="header-library visually-hidden">
+    <div class="header-home__bg">
+      <div class="header-home__container">
+        <div class="menu">
+          <div class="logo js-logo">
+            <a href="#" class="js-home-page"><svg class="logo__icon js-home-page" width="24px" height="24px">
+                <use href="./images/icons.svg#icon-logo-icon" class="js-home-page"></use>
+              </svg></a>
+            <a href="#" class="link logo__text js-home-page">Filmoteka</a>
+          </div>
+          <nav>
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#" class="link nav__link js-home-page">home</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="link nav__link--active js-library">my library</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="switch__btn">
+          <div class="switch__btn__icon-container">
+            <i class="switch__btn__icon fa-solid fa-sun"></i>
+          </div>
+        </div>
+  
+        <ul class="header__btn-wrapper btn-wrapper js-library-controls">
+          <li>
+            <button id="watched" class="header__btn btn-lib btn-lib--white js-btn-watched"
+              type="button">
+              Watched
+            </button>
+          </li>
+          <li>
+            <button id="queue" class="header__btn btn-lib btn-lib--white js-btn-queue" type="button">
+              Queue
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>

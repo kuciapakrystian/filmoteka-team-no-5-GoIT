@@ -1,154 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head><link rel="stylesheet" href="/index.2212206d.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="the best site to search for popular movies">
-  <meta name="keywords" content="movie, movies, film, genres, popularity movies">
-  <meta name="robots" content="index,follow">
-  <title>Filmoteka</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Mynerve&family=Raleway:wght@500&display=swap" rel="stylesheet">
-  <link rel="icon" href="/favicon.30f7f635.svg" type="image/x-icon">
-  <link rel="stylesheet" href="/index.b07a87f3.css">
-</head>
-
-<body>
-  <!--WSZYSTKO JEST DODANE!!! PROSZĘ JUŻ NIŻEJ NIC NIE WKLEJAĆ, NAWET PLIKÓW Z JS, DZIĘKI!-->
-  <div class="content-wrap">
-    <button id="scroll-top-button" class="scroll-top-button" type="button">
+  <head><link rel="stylesheet" href="/index.2212206d.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="the best site to search for popular movies">
+    <meta name="keywords" content="movie, movies, film, genres, popularity movies">
+    <meta name="robots" content="index,follow">
+    <title>Filmoteka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mynerve&family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.30f7f635.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/index.b07a87f3.css">
+  </head>
+  <body class="light-theme">
+    <div class="content-wrap">
+      <button id="scroll-top-button" class="scroll-top-button" type="button">
     <svg class="scroll-top-icon" width="30px" height="30px">
         <use href="/totop.df53644c.svg#icon-arrow-thick-up"></use>
     </svg>
 </button>
-    <header class="home-header">
-    <div class="first-header-container">
-        <div class="first-content-header">
-            <a href="/index.html" class="logo-header">
-                <svg>
-                    <use href="/icons.adfc4680.svg#film"></use>
-                </svg>
-                <span>Filmoteka</span>
-            </a>
-
-            <nav class="header-navigation">
-
-                <ul>
-                    <li>
-                        <a href="/index.html" class="link-for-pages active-page-header ">home</a>
-                    </li>
-                    <li>
-                        <a href="/library.html" class="link-for-pages js-library">my library</a>
-                    </li>
-                    <li><a href="" class="login-img-container">
-                            <p class="login-paragraph">Log in</p>
-                            <img src="/user.cc753810.png" alt="" width="15" height="15">
-                        </a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="toolbar">
-            <div class="theme-switch">
-                <svg class="theme-switch__icon">
-                    <use href="/sprite.15147c25.svg#sun"></use>
-                </svg>
-
-                <div class="theme-switch__control">
-                    <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle">
-                    <label class="theme-switch__track" for="theme-switch-toggle"> </label>
-                    <div class="theme-switch__marker"></div>
+      <!-- header for main page -->
+<header class="header-home">
+    <div class="header-home__bg">
+        <div class="header-home__container">
+            <div class="menu">
+                <div class="logo">
+                    <a href="#"><svg class="logo__icon" width="24px" height="24px">
+                            <use href="/icons.adfc4680.svg#icon-logo-icon"></use>
+                        </svg></a>
+                    <a href="#" class="link logo__text">Filmoteka</a>
                 </div>
+                <nav class="nav__list">
+                    <ul class="nav__list">
 
-                <svg class="theme-switch__icon">
-                    <use href="/sprite.15147c25.svg#moon"></use>
-                </svg>
-            </div>
-        </div>
-        <div class="second-content-header">
-            <div class="div-input-header">
-                <form action="" class="header-form">
-                    <input type="text" id="inputSearch">
-                    <label for="inputSearch">Movie search</label>
-                    <button type="submit">
-                        <svg width="15" height="15" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.5 9.5C7.70914 9.5 9.5 7.70914 9.5 5.5C9.5 3.29086 7.70914 1.5 5.5 1.5C3.29086 1.5 1.5 3.29086 1.5 5.5C1.5 7.70914 3.29086 9.5 5.5 9.5Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M10.5 10.5002L8.32495 8.3252" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <li class="nav__item"><a href="#" class="link nav__link--active">home</a></li>
+
+                        <li class="nav__item"><a id="library" href="#" class="link nav__link js-library">my library</a>
+                        </li>
+                    </ul>
+                    <button class="log-in login-open" type="submit">Sign in</button>
+                    <button class="log-out is-hidden" type="submit">Log Out</button>
+                </nav>
+                <div class="toolbar">
+                    <div class="theme-switch">
+                        <svg class="theme-switch__icon">
+                            <use href="/sprite.15147c25.svg#sun"></use>
                         </svg>
-
-                    </button>
-                </form>
-                <p class="opacity-p-header">Search result not successful. Enter the correct movie name and try again.
-                </p>
+                
+                        <div class="theme-switch__control">
+                            <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle">
+                            <label class="theme-switch__track" for="theme-switch-toggle"> </label>
+                            <div class="theme-switch__marker"></div>
+                        </div>
+                
+                        <svg class="theme-switch__icon">
+                            <use href="/sprite.15147c25.svg#moon"></use>
+                        </svg>
+                    </div>
+                </div>
             </div>
+            <form class="search-form" id="search-form">
+                <input type="text" name="searchQuery" autocomplete="off" placeholder="Search movies...">
+                <button type="submit"><svg class="search-form__icon" width="12px" height="12px">
+                        <use href="/icons.adfc4680.svg#icon-search-icon"></use>
+                    </svg></button>
+            </form>
+            <p class="warning"></p>
         </div>
     </div>
 </header>
-    <!-- preloader / spinner -->
-<div id="preloader"></div>
-    <div class="cards-home-container">
-  <ul class="cards-home-list"></ul>
-</div>
+      <!-- header for library page -->
 
-    <ul class="pagination" id="pagination"></ul>
-  </div>
-  <footer class="footer">
-  <div class="footer-container">
-    <div class="first-part">
-      <p class="footer-text">© 2024 | All Rights Reserved |</p>
-    </div>
-
-    <div class="second-part">
-      <p class="footer-text">Developed with</p>
-      <div class="heart-footer"><img src="/Heart.d0f25e86.svg" alt=""></div>
-      <p class="footer-text">
-        by <a href="#" data-modal-open="" class="open-modal"> GoIT students </a>
-      </p>
-    </div>
-  </div>
-</footer>
-
-  <div class="login-container">
-
-    <div class="form-container">
-        <h2>Log in!</h2>
-        <hr class="login-hr">
-        <ul class="icons-social-list">
-            <li><a href="">
-                    <svg width="30" height="30">
-                        <use href="/social-icons.4df27350.svg#icon-facebook"></use>
-                    </svg></a></li>
-            <li><a href="">
-                    <svg width="30" height="30">
-                        <use href="/social-icons.4df27350.svg#icon-instagram"></use>
-                    </svg></a></li>
-            <li><a href="">
-                    <svg width="30" height="30">
-                        <use href="/social-icons.4df27350.svg#icon-whatsapp"></use>
-                    </svg></a></li>
-        </ul>
-        <button class="close-modal-login">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="close-modal-login">
-                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"></line>
-                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"></line>
-            </svg>
-        </button>
-        <form class="login-form" action="#" method="post">
-            <input type="email" name="email" class="email" placeholder="Email" required="">
-            <input type="password" name="password" class="password" placeholder="Password" required="">
-            <div class="login-sign-buttons">
-                <button type="submit" class="signin-btn">Sign In</button>
-                <button type="submit" class="signup-btn">Sign Up</button>
-            </div>
-        </form>
-        <button type="submit" class="logout-btn">Log out</button>
-    </div>
-</div>
+<header class="header-library visually-hidden">
+    <div class="header-home__bg">
+      <div class="header-home__container">
+        <div class="menu">
+          <div class="logo js-logo">
+            <a href="#" class="js-home-page"><svg class="logo__icon js-home-page" width="24px" height="24px">
+                <use href="/icons.adfc4680.svg#icon-logo-icon" class="js-home-page"></use>
+              </svg></a>
+            <a href="#" class="link logo__text js-home-page">Filmoteka</a>
+          </div>
+          <nav>
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#" class="link nav__link js-home-page">home</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="link nav__link--active js-library">my library</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="switch__btn">
+          <div class="switch__btn__icon-container">
+            <i class="switch__btn__icon fa-solid fa-sun"></i>
+          </div>
+        </div>
   
+        <ul class="header__btn-wrapper btn-wrapper js-library-controls">
+          <li>
+            <button id="watched" class="header__btn btn-lib btn-lib--white js-btn-watched" type="button">
+              Watched
+            </button>
+          </li>
+          <li>
+            <button id="queue" class="header__btn btn-lib btn-lib--white js-btn-queue" type="button">
+              Queue
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+      
+      
+      
+      
+    </div>
+    
+    
+    
 
-  <div class="modal is-hidden" data-modal="">
+    <div class="modal is-hidden" data-modal="">
   <div class="modal-body">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="modal-close" data-modal-close="">
                 <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"></line>
@@ -205,9 +181,6 @@
   </div>
 </div>
 
-  <script src="/index.975ef6c8.js" defer=""></script>
-
-</body>
-
-
+    <script src="/index.975ef6c8.js" defer=""></script>
+  </body>
 </html>

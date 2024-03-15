@@ -1,90 +1,163 @@
-.library-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../images/Rectangle-1x-desktop.jpg');
+@use '../utils' as *;
+
+// edit below
+
+.header-home {
+  position: relative;
+  background-image: url('/src/images/bg-image.jpg');
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  height: 230px;
+  margin: 0 auto;
+  color: $secondary-text-cl;
+  font-family: $main-font;
 }
 
-.second-header-container {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../images/Rectangle-1x-desktop.jpg');
-  background-size: cover;
-  background-position: center;
-  padding: 40px;
-  font-family: 'Roboto', sans-serif;
-  @media screen and (max-width: 768px) {
-    background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('../images/Rectangle-1x-tablet.jpg');
+.header-home__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $dark-secondary-bg-cl;
+}
+
+.header-home__container {
+  max-width: 280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+
+  &:hover .logo__icon {
+    transform: rotate(180deg);
   }
-  @media screen and (max-width: 420px) {
-    background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('../images/Rectangle-1x-mobile.jpg');
+
+  &__icon {
+    transition: transform 0.5s ease-out;
   }
 }
 
-.sec-cont-header-library ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  margin-bottom: 13px;
+.logo__text {
+  display: none;
+  background: linear-gradient(
+        225deg,
+        $secondary-accent-cl,
+        $main-bg-cl,
+        $secondary-accent-cl
+      )
+      0 0 / 400%,
+    100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 8s infinite linear;
 }
 
-.library-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../images/Rectangle-1x-desktop.jpg');
-}
-
-.sec-cont-header-library {
+.menu {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.sec-cont-header-library ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
+  justify-content: space-between;
+  align-items: baseline;
   margin-top: 40px;
 }
 
-.library-header-btn {
-  border: none;
-  border-radius: 5px;
-  // padding: 5rem 2rem;
-  cursor: pointer;
-  color: white;
+.nav__list {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav__item {
   text-transform: uppercase;
-  padding: 1rem 0rem;
-  background-color: transparent;
-  width: 158px;
-  text-align: center;
-  border: 1px solid #ffffff;
-  border-radius: 5px;
-  background-color: transparent;
-  @media screen and (max-width: 420px) {
-    width: 120px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.nav__link {
+  transition: color 250ms;
+
+  &--active {
+    border-bottom: 3px solid $secondary-accent-cl;
+  }
+
+  &:hover {
+    color: $secondary-accent-cl;
   }
 }
 
-.library-header-btn:focus,
-.library-header-btn:active {
-  background-color: #ff6b01;
-  box-shadow: 0px 0px 43px 0px rgba(255, 107, 1, 0.6);
-  border: none;
-}
-
-.first-content-header {
+.search-form {
+  width: 100%;
+  max-width: 336px;
+  border-bottom: 1px solid white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  input {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    outline: none;
+    color: inherit;
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+
+  &__icon {
+    transition: transform 250ms;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover .search-form__icon {
+      transform: scale(1.5);
+    }
+  }
 }
 
-.second-content-header {
-  display: flex;
-  justify-content: center;
+.warning {
+  color: #ff001b;
+  font-size: 14px;
+  text-align: center;
 }
 
-a {
-  text-decoration: none;
+@media (min-width: 768px) {
+  .header-home__container {
+    max-width: 617px;
+  }
+
+  .logo__text {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .nav__list {
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-home__container {
+    max-width: 882px;
+  }
+}
+
+@keyframes move-bg {
+  to {
+    background-position: 400%;
+  }
 }
