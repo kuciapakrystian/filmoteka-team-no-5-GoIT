@@ -5866,8 +5866,22 @@ var global = arguments[3];
 },{}],"dt3tW":[function(require,module,exports) {
 
 },{}],"8mtAC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// Refresh rendered movie cards
+parcelHelpers.export(exports, "refreshRendering", ()=>refreshRendering);
+parcelHelpers.export(exports, "refreshRenderingPagination", ()=>refreshRenderingPagination);
+"use strict";
+function refreshRendering() {
+    const elementToRemove = document.querySelectorAll(".movie-card");
+    if (elementToRemove.length > 0) for(let i = 0; i < elementToRemove.length; i++)elementToRemove[i].remove();
+}
+function refreshRenderingPagination() {
+    const elementToRemove = document.querySelector("#pagination-numbers");
+    elementToRemove.innerHTML = "";
+}
 
-},{}],"bT6UK":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bT6UK":[function(require,module,exports) {
 
 },{}],"2yd8E":[function(require,module,exports) {
 
@@ -5920,6 +5934,8 @@ toggle.addEventListener("change", ()=>{
 },{}],"aZTDl":[function(require,module,exports) {
 
 },{}],"ilg54":[function(require,module,exports) {
+const logo = document.querySelector(".logo");
+logo.addEventListener("click", ()=>history.go(0));
 
 },{}],"e4vVD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
