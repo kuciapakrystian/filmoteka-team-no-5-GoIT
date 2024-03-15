@@ -12,10 +12,10 @@ const closeLogin = document.querySelector('.close-modal-login');
 
 modalLoginBtn.addEventListener('click', e => {
   e.preventDefault();
-  modalLogin.classList.add('active');
+  modalLogin.classList.add('login-active');
 });
 
 closeLogin.addEventListener('click', e => {
   e.preventDefault();
-  modalLogin.classList.remove('active');
+  modalLogin.classList.remove('login-active');
 });

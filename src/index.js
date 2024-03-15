@@ -8,8 +8,8 @@ import './sass/components/_button.scss';
 
 // import './js/spinner';
 import './js/day-night';
-import './js/login';
 import './js/login-modal';
+import './js/login';
 import './js/students-modal';
 
 import './js/localStorage';

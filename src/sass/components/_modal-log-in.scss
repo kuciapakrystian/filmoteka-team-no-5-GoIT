@@ -1,26 +1,22 @@
-.active {
+.login-active {
   display: flex;
 }
 
 .login-container {
   display: none;
+  transform: scale(0.8);
 }
 
-.login-container.active {
-  background-color: #ffffff;
+.login-container.login-active {
   padding: 20px;
   border-radius: 8px;
-  width: 50rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
   z-index: 999;
-  display: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +42,7 @@
   gap: 2rem;
   position: relative;
   border-radius: 2rem;
-  background-color: #ffffff1a;
+  background-color: #ffffff6a;
   backdrop-filter: blur(2rem);
   @media (max-width: 830px) {
     width: 100%;
@@ -71,7 +67,7 @@
   background-size: contain;
   background-position: center;
   @media (max-width: 830px) {
-    padding: 0rem 1rem;
+    padding: 0rem 2rem;
   }
   @media (max-width: 490px) {
     width: 100%;
@@ -86,7 +82,6 @@
   border: 1px solid #ccc;
   background-color: #ffffff29;
   border-radius: 1rem;
-
   color: white;
   letter-spacing: 2px;
   outline: none;
@@ -122,7 +117,39 @@
   }
 }
 
-.sing-out-btn {
+.login-sign-buttons {
+  display: flex;
+  gap: 5.5rem;
+  @media (max-width: 830px) {
+    display: block;
+    margin: 1rem auto;
+  }
+}
+
+.signin-btn,
+.signup-btn {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 1rem 4rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  transition: 250ms ease-in;
+  letter-spacing: 2px;
+  font-weight: 600;
+  border-radius: 1rem;
+  &:hover {
+    background-color: #ff6b08;
+  }
+  @media (max-width: 830px) {
+    width: 100%;
+  }
+  @media (max-width: 490px) {
+    width: 100%;
+  }
+}
+
+.logout-btn {
   background-color: #000000;
   color: #fff;
   border: none;
@@ -166,16 +193,6 @@
     top: 8;
     right: 8;
   }
-}
-
-.pp-link {
-  color: #ff6b08;
-  border-bottom: 1px solid #ff6b08;
-}
-
-.form-p {
-  color: #ffffff;
-  letter-spacing: 2px;
 }
 
 .icons-social-list {
