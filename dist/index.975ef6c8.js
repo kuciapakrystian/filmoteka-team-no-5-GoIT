@@ -5864,6 +5864,375 @@ var global = arguments[3];
 });
 
 },{}],"dt3tW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "searchInput", ()=>searchInput);
+parcelHelpers.export(exports, "handleSubmit", ()=>handleSubmit);
+// ATTENTION!
+// cards rendering function should be separate to its own js file
+parcelHelpers.export(exports, "renderMovies", ()=>renderMovies);
+parcelHelpers.export(exports, "clearInput", ()=>clearInput);
+var _lodashDebounce = require("lodash.debounce");
+var _lodashDebounceDefault = parcelHelpers.interopDefault(_lodashDebounce);
+var _fetch = require("./fetch");
+var _refreshrendering = require("./refreshrendering");
+var _cardsHome = require("./cards-home");
+var _notiflix = require("notiflix");
+var _spinner = require("./spinner");
+const DEBOUNCE_DELAY = 3000;
+let searchInput;
+const form = document.querySelector("#search-form");
+const input = document.querySelector("#search-form input");
+const handleSubmit = function(e) {
+    (0, _spinner.preloader).classList.remove("hidden");
+    (0, _refreshrendering.refreshRendering)();
+    (0, _refreshrendering.refreshRenderingPagination)();
+    e.preventDefault();
+    searchInput = input.value.trim();
+    setTimeout(()=>{
+        (0, _fetch.getSearchedMovies)(searchInput);
+        (0, _spinner.preloader).classList.add("hidden");
+    }, 500);
+//clearInput();
+};
+form.addEventListener("submit", handleSubmit);
+function renderMovies(response) {
+    (0, _refreshrendering.refreshRendering)();
+    //get genres for movies
+    (0, _fetch.getGenres)().then((el)=>{
+        const genres = el;
+        generateCards(response.data.results, genres);
+    });
+    //create set of movie cards
+    function generateCards(data, genres) {
+        data.map((movie)=>{
+            const genresDesc = getGenresDescription(movie, genres);
+            createMovieCard(movie, genresDesc);
+        });
+    }
+    function getGenresDescription(movie, genres) {
+        return genres.reduce((acc, el)=>{
+            if (movie.genre_ids.includes(el.id)) acc.push(el.name);
+            return acc;
+        }, []);
+    }
+    //create single movie card element
+    function createMovieCard(singleMovie, genresDesc) {
+        let movieWrapper = document.createElement("div");
+        movieWrapper.classList.add("movie-card");
+        movieWrapper.setAttribute("id", singleMovie.id);
+        //create full url for images
+        let urlImg = `https://image.tmdb.org/t/p/w300${singleMovie.poster_path}`;
+        let moviePicture = document.createElement("img");
+        moviePicture.classList.add("movie-card__img");
+        moviePicture.setAttribute("src", urlImg);
+        moviePicture.setAttribute("alt", singleMovie.title);
+        moviePicture.setAttribute("onerror", "this.src = 'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'");
+        moviePicture.setAttribute("loading", "lazy");
+        let movieTitle = document.createElement("h2");
+        movieTitle.classList.add("movie-card__title");
+        movieTitle.textContent = singleMovie.title;
+        let movieInfo = document.createElement("p");
+        movieInfo.classList.add("movie-card__info");
+        if (genresDesc.length > 3) {
+            genresDesc = genresDesc.slice(0, 2);
+            movieInfo.textContent = `${genresDesc.join(", ") + ", Other"} | ${singleMovie.release_date.slice(0, 4)}`;
+        } else movieInfo.textContent = `${genresDesc.join(", ")} | ${singleMovie.release_date.slice(0, 4)}`;
+        let movieRating = document.createElement("span");
+        movieRating.classList.add("movie-card__rating");
+        movieRating.textContent = singleMovie.vote_average.toFixed(1);
+        (0, _cardsHome.moviesContainer).appendChild(movieWrapper);
+        movieWrapper.append(moviePicture, movieTitle, movieInfo, movieRating);
+    }
+}
+function clearInput() {
+    input.value = "";
+}
+
+},{"lodash.debounce":"3JP5n","./fetch":"3MHo1","./refreshrendering":"8mtAC","./cards-home":"hoeOg","notiflix":"fuMq1","./spinner":"e4vVD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3JP5n":[function(require,module,exports) {
+/**
+ * lodash (Custom Build) <https://lodash.com/>
+ * Build: `lodash modularize exports="npm" -o ./`
+ * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */ /** Used as the `TypeError` message for "Functions" methods. */ var global = arguments[3];
+var FUNC_ERROR_TEXT = "Expected a function";
+/** Used as references for various `Number` constants. */ var NAN = 0 / 0;
+/** `Object#toString` result references. */ var symbolTag = "[object Symbol]";
+/** Used to match leading and trailing whitespace. */ var reTrim = /^\s+|\s+$/g;
+/** Used to detect bad signed hexadecimal string values. */ var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+/** Used to detect binary string values. */ var reIsBinary = /^0b[01]+$/i;
+/** Used to detect octal string values. */ var reIsOctal = /^0o[0-7]+$/i;
+/** Built-in method references without a dependency on `root`. */ var freeParseInt = parseInt;
+/** Detect free variable `global` from Node.js. */ var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
+/** Detect free variable `self`. */ var freeSelf = typeof self == "object" && self && self.Object === Object && self;
+/** Used as a reference to the global object. */ var root = freeGlobal || freeSelf || Function("return this")();
+/** Used for built-in method references. */ var objectProto = Object.prototype;
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */ var objectToString = objectProto.toString;
+/* Built-in method references for those with the same name as other `lodash` methods. */ var nativeMax = Math.max, nativeMin = Math.min;
+/**
+ * Gets the timestamp of the number of milliseconds that have elapsed since
+ * the Unix epoch (1 January 1970 00:00:00 UTC).
+ *
+ * @static
+ * @memberOf _
+ * @since 2.4.0
+ * @category Date
+ * @returns {number} Returns the timestamp.
+ * @example
+ *
+ * _.defer(function(stamp) {
+ *   console.log(_.now() - stamp);
+ * }, _.now());
+ * // => Logs the number of milliseconds it took for the deferred invocation.
+ */ var now = function() {
+    return root.Date.now();
+};
+/**
+ * Creates a debounced function that delays invoking `func` until after `wait`
+ * milliseconds have elapsed since the last time the debounced function was
+ * invoked. The debounced function comes with a `cancel` method to cancel
+ * delayed `func` invocations and a `flush` method to immediately invoke them.
+ * Provide `options` to indicate whether `func` should be invoked on the
+ * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+ * with the last arguments provided to the debounced function. Subsequent
+ * calls to the debounced function return the result of the last `func`
+ * invocation.
+ *
+ * **Note:** If `leading` and `trailing` options are `true`, `func` is
+ * invoked on the trailing edge of the timeout only if the debounced function
+ * is invoked more than once during the `wait` timeout.
+ *
+ * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+ * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+ *
+ * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+ * for details over the differences between `_.debounce` and `_.throttle`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Function
+ * @param {Function} func The function to debounce.
+ * @param {number} [wait=0] The number of milliseconds to delay.
+ * @param {Object} [options={}] The options object.
+ * @param {boolean} [options.leading=false]
+ *  Specify invoking on the leading edge of the timeout.
+ * @param {number} [options.maxWait]
+ *  The maximum time `func` is allowed to be delayed before it's invoked.
+ * @param {boolean} [options.trailing=true]
+ *  Specify invoking on the trailing edge of the timeout.
+ * @returns {Function} Returns the new debounced function.
+ * @example
+ *
+ * // Avoid costly calculations while the window size is in flux.
+ * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
+ *
+ * // Invoke `sendMail` when clicked, debouncing subsequent calls.
+ * jQuery(element).on('click', _.debounce(sendMail, 300, {
+ *   'leading': true,
+ *   'trailing': false
+ * }));
+ *
+ * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
+ * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
+ * var source = new EventSource('/stream');
+ * jQuery(source).on('message', debounced);
+ *
+ * // Cancel the trailing debounced invocation.
+ * jQuery(window).on('popstate', debounced.cancel);
+ */ function debounce(func, wait, options) {
+    var lastArgs, lastThis, maxWait, result, timerId, lastCallTime, lastInvokeTime = 0, leading = false, maxing = false, trailing = true;
+    if (typeof func != "function") throw new TypeError(FUNC_ERROR_TEXT);
+    wait = toNumber(wait) || 0;
+    if (isObject(options)) {
+        leading = !!options.leading;
+        maxing = "maxWait" in options;
+        maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
+        trailing = "trailing" in options ? !!options.trailing : trailing;
+    }
+    function invokeFunc(time) {
+        var args = lastArgs, thisArg = lastThis;
+        lastArgs = lastThis = undefined;
+        lastInvokeTime = time;
+        result = func.apply(thisArg, args);
+        return result;
+    }
+    function leadingEdge(time) {
+        // Reset any `maxWait` timer.
+        lastInvokeTime = time;
+        // Start the timer for the trailing edge.
+        timerId = setTimeout(timerExpired, wait);
+        // Invoke the leading edge.
+        return leading ? invokeFunc(time) : result;
+    }
+    function remainingWait(time) {
+        var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime, result = wait - timeSinceLastCall;
+        return maxing ? nativeMin(result, maxWait - timeSinceLastInvoke) : result;
+    }
+    function shouldInvoke(time) {
+        var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime;
+        // Either this is the first call, activity has stopped and we're at the
+        // trailing edge, the system time has gone backwards and we're treating
+        // it as the trailing edge, or we've hit the `maxWait` limit.
+        return lastCallTime === undefined || timeSinceLastCall >= wait || timeSinceLastCall < 0 || maxing && timeSinceLastInvoke >= maxWait;
+    }
+    function timerExpired() {
+        var time = now();
+        if (shouldInvoke(time)) return trailingEdge(time);
+        // Restart the timer.
+        timerId = setTimeout(timerExpired, remainingWait(time));
+    }
+    function trailingEdge(time) {
+        timerId = undefined;
+        // Only invoke if we have `lastArgs` which means `func` has been
+        // debounced at least once.
+        if (trailing && lastArgs) return invokeFunc(time);
+        lastArgs = lastThis = undefined;
+        return result;
+    }
+    function cancel() {
+        if (timerId !== undefined) clearTimeout(timerId);
+        lastInvokeTime = 0;
+        lastArgs = lastCallTime = lastThis = timerId = undefined;
+    }
+    function flush() {
+        return timerId === undefined ? result : trailingEdge(now());
+    }
+    function debounced() {
+        var time = now(), isInvoking = shouldInvoke(time);
+        lastArgs = arguments;
+        lastThis = this;
+        lastCallTime = time;
+        if (isInvoking) {
+            if (timerId === undefined) return leadingEdge(lastCallTime);
+            if (maxing) {
+                // Handle invocations in a tight loop.
+                timerId = setTimeout(timerExpired, wait);
+                return invokeFunc(lastCallTime);
+            }
+        }
+        if (timerId === undefined) timerId = setTimeout(timerExpired, wait);
+        return result;
+    }
+    debounced.cancel = cancel;
+    debounced.flush = flush;
+    return debounced;
+}
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */ function isObject(value) {
+    var type = typeof value;
+    return !!value && (type == "object" || type == "function");
+}
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */ function isObjectLike(value) {
+    return !!value && typeof value == "object";
+}
+/**
+ * Checks if `value` is classified as a `Symbol` primitive or object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+ * @example
+ *
+ * _.isSymbol(Symbol.iterator);
+ * // => true
+ *
+ * _.isSymbol('abc');
+ * // => false
+ */ function isSymbol(value) {
+    return typeof value == "symbol" || isObjectLike(value) && objectToString.call(value) == symbolTag;
+}
+/**
+ * Converts `value` to a number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to process.
+ * @returns {number} Returns the number.
+ * @example
+ *
+ * _.toNumber(3.2);
+ * // => 3.2
+ *
+ * _.toNumber(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toNumber(Infinity);
+ * // => Infinity
+ *
+ * _.toNumber('3.2');
+ * // => 3.2
+ */ function toNumber(value) {
+    if (typeof value == "number") return value;
+    if (isSymbol(value)) return NAN;
+    if (isObject(value)) {
+        var other = typeof value.valueOf == "function" ? value.valueOf() : value;
+        value = isObject(other) ? other + "" : other;
+    }
+    if (typeof value != "string") return value === 0 ? value : +value;
+    value = value.replace(reTrim, "");
+    var isBinary = reIsBinary.test(value);
+    return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
+}
+module.exports = debounce;
 
 },{}],"8mtAC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -5881,63 +6250,7 @@ function refreshRenderingPagination() {
     elementToRemove.innerHTML = "";
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bT6UK":[function(require,module,exports) {
-
-},{}],"2yd8E":[function(require,module,exports) {
-
-},{}],"47T64":[function(require,module,exports) {
-
-},{}],"7Hb2m":[function(require,module,exports) {
-
-},{}],"jOlzl":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "body", ()=>body);
-parcelHelpers.export(exports, "toggle", ()=>toggle);
-const body = document.querySelector("body");
-const toggle = document.querySelector("#theme-switch-toggle");
-toggle.addEventListener("change", ()=>{
-    if (body.classList.contains("dark-theme")) body.classList.remove("dark-theme");
-    else body.classList.add("dark-theme");
-});
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"45bAM":[function(require,module,exports) {
-
-},{}],"aZTDl":[function(require,module,exports) {
-
-},{}],"1BHbY":[function(require,module,exports) {
-(()=>{
-    const refs = {
-        openModalBtn: document.querySelector("[data-modal-open]"),
-        closeModalBtn: document.querySelector("[data-modal-close]"),
-        modal: document.querySelector("[data-modal]"),
-        body: document.querySelector("body")
-    };
-    refs.modal.addEventListener("click", toggleModal);
-    refs.openModalBtn.addEventListener("click", toggleModal);
-    function toggleModal(e) {
-        if (Object.values(refs).includes(e.target)) {
-            refs.modal.classList.toggle("is-hidden");
-            onBodyToggle();
-        }
-    }
-    window.addEventListener("keydown", closeModalByEscape);
-    function closeModalByEscape(e) {
-        if (e.code === "Escape" && !refs.modal.classList.value.includes("is-hidden")) {
-            refs.modal.classList.toggle("is-hidden");
-            onBodyToggle();
-        }
-    }
-    function onBodyToggle() {
-        refs.body.classList.toggle("team-open");
-    }
-})();
-
-},{}],"ilg54":[function(require,module,exports) {
-const logo = document.querySelector(".logo");
-logo.addEventListener("click", ()=>history.go(0));
-
-},{}],"e4vVD":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e4vVD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "preloader", ()=>preloader);
@@ -6139,7 +6452,63 @@ function convertOffset(x, y, degrees) {
     ];
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jodV9":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bT6UK":[function(require,module,exports) {
+
+},{}],"2yd8E":[function(require,module,exports) {
+
+},{}],"47T64":[function(require,module,exports) {
+
+},{}],"7Hb2m":[function(require,module,exports) {
+
+},{}],"jOlzl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "body", ()=>body);
+parcelHelpers.export(exports, "toggle", ()=>toggle);
+const body = document.querySelector("body");
+const toggle = document.querySelector("#theme-switch-toggle");
+toggle.addEventListener("change", ()=>{
+    if (body.classList.contains("dark-theme")) body.classList.remove("dark-theme");
+    else body.classList.add("dark-theme");
+});
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"45bAM":[function(require,module,exports) {
+
+},{}],"aZTDl":[function(require,module,exports) {
+
+},{}],"1BHbY":[function(require,module,exports) {
+(()=>{
+    const refs = {
+        openModalBtn: document.querySelector("[data-modal-open]"),
+        closeModalBtn: document.querySelector("[data-modal-close]"),
+        modal: document.querySelector("[data-modal]"),
+        body: document.querySelector("body")
+    };
+    refs.modal.addEventListener("click", toggleModal);
+    refs.openModalBtn.addEventListener("click", toggleModal);
+    function toggleModal(e) {
+        if (Object.values(refs).includes(e.target)) {
+            refs.modal.classList.toggle("is-hidden");
+            onBodyToggle();
+        }
+    }
+    window.addEventListener("keydown", closeModalByEscape);
+    function closeModalByEscape(e) {
+        if (e.code === "Escape" && !refs.modal.classList.value.includes("is-hidden")) {
+            refs.modal.classList.toggle("is-hidden");
+            onBodyToggle();
+        }
+    }
+    function onBodyToggle() {
+        refs.body.classList.toggle("team-open");
+    }
+})();
+
+},{}],"ilg54":[function(require,module,exports) {
+const logo = document.querySelector(".logo");
+logo.addEventListener("click", ()=>history.go(0));
+
+},{}],"jodV9":[function(require,module,exports) {
 const scrollTopButton = document.querySelector("#scroll-top-button");
 const onScroll = (event)=>{
     const scrollPosition = event.target.scrollingElement.scrollTop;
