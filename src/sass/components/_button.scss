@@ -1,0 +1,110 @@
+.btn {
+    display: block;
+    margin: 0;
+    width: 112.58px;
+    height: 44px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+  
+    border-radius: 5px;
+    cursor: pointer;
+    
+    &__addToWatched {
+      border: 1px solid #ff6b01;
+      background: #ff6b01;
+      color: #ffffff;
+      transition: box-shadow 500 ease-in-out, scale 500 ease-in-out;
+    }
+    
+    &__addToWatched:hover {
+      box-shadow: 2px 4px 14px -2px rgba(212, 119, 25, 1);
+      scale: (1.1);
+    }
+    
+  
+    &__addToQue {
+      background: #ffffff;
+      transition: box-shadow 500 ease-in-out, scale 500 ease-in-out;
+    }
+  
+    &__addToQue:hover {
+      box-shadow: 2px 4px 24px -2px rgba(212, 119, 25, 1);
+      scale: (1.1);
+    }
+    
+    &--close {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      transform: rotate(0) ;
+      transition: transform .5s ease;
+    }
+    
+    &--close:hover {
+      transform: rotate(-90deg);
+    }
+    
+    &__icon-close {
+      width: 30px;
+      height: 30px;
+      stroke: #000;
+    }
+  
+    &--play {
+      position: absolute;
+      width:40px;
+      height:40px;
+      padding: 4px;
+      margin-top: 10px;
+      // margin: 0;
+      // left: calc(50% / 30%);
+      left: calc(7vw + 10px);
+      
+      // top: 50%;
+      align-self: baseline;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      border: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // z-index: 1;
+    }
+    
+  &__icon-play {
+    width:50px;
+    height:50px;
+    fill:green;
+  }
+  
+  }
+  
+  @media screen and (min-width: 400px){
+    .btn--play {
+      left: 30px;
+    }
+  }
+  
+  @media screen and (min-width: 600px){
+    .btn--play {
+      left: 40px;
+    }
+  }
+  
+  @media screen and (min-width: 650px){
+    .btn--play {
+      left: 50px;
+    }
+  }
