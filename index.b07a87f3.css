@@ -929,17 +929,18 @@ a {
   line-height: 26px;
 }
 
-.active {
+.login-active {
   display: flex;
 }
 
 .login-container {
   display: none;
+  transform: scale(.8);
 }
 
-.login-container.active {
+.login-container.login-active {
   z-index: 999;
-  background-color: #00000080;
+  background-color: #0000;
   border-radius: 8px;
   flex-direction: column;
   justify-content: center;
@@ -951,7 +952,6 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  box-shadow: 0 0 10px #0000001a;
 }
 
 .login-container h2 {
@@ -965,7 +965,7 @@ a {
 
 .form-container {
   backdrop-filter: blur(2rem);
-  background-color: #ffffff1a;
+  background-color: #ffffff6a;
   border-radius: 2rem;
   flex-direction: column;
   gap: 2rem;
@@ -1003,7 +1003,7 @@ a {
 
 @media (width <= 830px) {
   .login-form {
-    padding: 0 1rem;
+    padding: 0 2rem;
   }
 }
 
@@ -1062,7 +1062,47 @@ a {
   }
 }
 
-.sing-out-btn {
+.login-sign-buttons {
+  gap: 5.5rem;
+  display: flex;
+}
+
+@media (width <= 830px) {
+  .login-sign-buttons {
+    margin: 1rem auto;
+    display: block;
+  }
+}
+
+.signin-btn, .signup-btn {
+  color: #fff;
+  letter-spacing: 2px;
+  background-color: #000;
+  border: none;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 4rem;
+  font-weight: 600;
+  transition: all .25s ease-in;
+}
+
+.signin-btn:hover, .signup-btn:hover {
+  background-color: #ff6b08;
+}
+
+@media (width <= 830px) {
+  .signin-btn, .signup-btn {
+    width: 100%;
+  }
+}
+
+@media (width <= 490px) {
+  .signin-btn, .signup-btn {
+    width: 100%;
+  }
+}
+
+.logout-btn {
   color: #fff;
   cursor: pointer;
   letter-spacing: 2px;
@@ -1075,12 +1115,12 @@ a {
   display: none;
 }
 
-.sing-out-btn:hover {
+.logout-btn:hover {
   background-color: #ff6b08;
 }
 
 @media (width <= 490px) {
-  .sing-out-btn {
+  .logout-btn {
     width: 100%;
   }
 }
@@ -1114,16 +1154,6 @@ a {
     top: 8px;
     right: 8px;
   }
-}
-
-.pp-link {
-  color: #ff6b08;
-  border-bottom: 1px solid #ff6b08;
-}
-
-.form-p {
-  color: #fff;
-  letter-spacing: 2px;
 }
 
 .icons-social-list {
