@@ -6689,8 +6689,59 @@ toggle.addEventListener("change", ()=>{
 });
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"45bAM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "saveToWatched", ()=>saveToWatched);
+parcelHelpers.export(exports, "saveToQue", ()=>saveToQue);
+var _fetch = require("./fetch");
+const saveToWatched = ()=>{
+    let watched = [];
+    let que = [];
+    const dataWatched = JSON.parse(localStorage.getItem("watched"));
+    const dataQue = JSON.parse(localStorage.getItem("que"));
+    const watchedButton = document.querySelector(".btn__addToWatched");
+    const queButton = document.querySelector(".btn__addToQue");
+    if (dataWatched != null) watched = watched.concat(...dataWatched);
+    if (dataQue != null) que = que.concat(...dataQue);
+    if (watchedButton.textContent !== "REMOVE FROM WATCHED") {
+        if (que.includes((0, _fetch.movieID))) {
+            const index = que.indexOf((0, _fetch.movieID));
+            que.splice(index, 1);
+        }
+        queButton.textContent = "ADD TO QUE";
+    }
+    watchedButton.textContent;
+    if (watched.includes((0, _fetch.movieID))) {
+        const index = watched.indexOf((0, _fetch.movieID));
+        watched.splice(index, 1);
+        watchedButton.textContent = "ADD TO WATCHED";
+        queButton.textContent = "ADD TO QUE";
+        if (que.includes((0, _fetch.movieID))) queButton.textContent = "REMOVE FROM QUE";
+    } else {
+        watched.push((0, _fetch.movieID));
+        watchedButton.textContent = "REMOVE FROM WATCHED";
+        queButton.textContent = "ADD TO QUE";
+    }
+    localStorage.setItem("watched", JSON.stringify(watched));
+    localStorage.setItem("que", JSON.stringify(que));
+};
+const saveToQue = ()=>{
+    let que = [];
+    const data = JSON.parse(localStorage.getItem("que"));
+    if (data != null) que = que.concat(...data);
+    const queButton = document.querySelector(".btn__addToQue");
+    if (que.includes((0, _fetch.movieID))) {
+        const index = que.indexOf((0, _fetch.movieID));
+        que.splice(index, 1);
+        queButton.textContent = "ADD TO QUE";
+    } else {
+        que.push((0, _fetch.movieID));
+        queButton.textContent = "REMOVE FROM QUE";
+    }
+    localStorage.setItem("que", JSON.stringify(que));
+};
 
-},{}],"aZTDl":[function(require,module,exports) {
+},{"./fetch":"3MHo1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aZTDl":[function(require,module,exports) {
 
 },{}],"1BHbY":[function(require,module,exports) {
 (()=>{
