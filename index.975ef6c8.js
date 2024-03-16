@@ -20415,32 +20415,63 @@ document.addEventListener("scroll", onScroll);
 scrollTopButton.addEventListener("click", scrollToTop);
 
 },{}],"1BHbY":[function(require,module,exports) {
-(()=>{
-    const refs = {
-        openModalBtn: document.querySelector("[data-modal-open]"),
-        closeModalBtn: document.querySelector("[data-modal-close]"),
-        modal: document.querySelector("[data-modal]"),
-        body: document.querySelector("body")
-    };
-    refs.modal.addEventListener("click", toggleModal);
-    refs.openModalBtn.addEventListener("click", toggleModal);
-    function toggleModal(e) {
-        if (Object.values(refs).includes(e.target)) {
-            refs.modal.classList.toggle("is-hidden");
-            onBodyToggle();
-        }
+const modalLink = document.querySelector(".footer__link");
+const modalWindow = document.querySelector(".modal");
+let slides = document.getElementsByClassName("modal__slide");
+let navlinks = document.getElementsByClassName("modal__navlink");
+let modalSpin = document.querySelector(".modal__spin");
+let slideIndex = 0;
+let timer = null;
+const removingClass = ()=>{
+    modalWindow.classList.add("is-hidden");
+};
+function showSlides() {
+    for(let i = 0; i < slides.length; i++)slides[i].style.display = "none";
+    slideIndex++;
+    if (slideIndex > slides.length) slideIndex = 1;
+    for(let j = 0; j < navlinks.length; j++)navlinks[j].className = navlinks[j].className.replace(" active", "");
+    slides[slideIndex - 1].style.display = "flex";
+    navlinks[slideIndex - 1].className += " active";
+    timer = setTimeout(showSlides, 1500);
+}
+modalLink.addEventListener("click", ()=>{
+    modalWindow.classList.remove("is-hidden");
+    showSlides();
+});
+window.addEventListener("click", (event)=>{
+    if (event.target.classList.contains("modal")) {
+        removingClass();
+        clearTimeout(timer);
     }
-    window.addEventListener("keydown", closeModalByEscape);
-    function closeModalByEscape(e) {
-        if (e.code === "Escape" && !refs.modal.classList.value.includes("is-hidden")) {
-            refs.modal.classList.toggle("is-hidden");
-            onBodyToggle();
-        }
+});
+window.addEventListener("keydown", (event)=>{
+    if (event.key === "Escape") {
+        removingClass();
+        clearTimeout(timer);
     }
-    function onBodyToggle() {
-        refs.body.classList.toggle("team-open");
-    }
-})();
+});
+var opts = {
+    lines: 8,
+    length: 10,
+    width: 5,
+    radius: 3,
+    scale: 1,
+    corners: 1,
+    speed: 0.7,
+    rotate: 0,
+    animation: "spinner-line-fade-more",
+    direction: 1,
+    color: "#ff6b01",
+    fadeColor: "transparent",
+    top: "50%",
+    left: "50%",
+    shadow: "0 0 1px transparent",
+    zIndex: 2000000000,
+    className: "spinner",
+    position: "absolute"
+};
+var spinner = new Spinner(opts).spin();
+modalSpin.appendChild(spinner.el);
 
 },{}]},["farZc","8lqZg"], "8lqZg", "parcelRequired7c6")
 
