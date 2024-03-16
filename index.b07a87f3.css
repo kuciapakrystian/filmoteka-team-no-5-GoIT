@@ -495,20 +495,127 @@ button {
   }
 }
 
+.header-library {
+  color: #fff;
+  background-image: url("Rectangle-1x-desktop.52bd30ee.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 230px;
+  margin: 0 auto;
+  font-family: Roboto, sans-serif;
+  position: relative;
+}
+
+.header__btn-wrapper {
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  display: flex;
+}
+
+.header__btn {
+  text-transform: none;
+  width: 130px;
+  height: 44px;
+}
+
+.btn-lib {
+  text-transform: uppercase;
+  background-color: #0000;
+  border: 1px solid;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+  display: inline-flex;
+}
+
+.btn-lib:hover {
+  animation: .7s ease-in-out 40ms both rotate;
+}
+
+.btn-lib--white {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-lib--white:hover {
+  color: #fff;
+  background-color: #ff6b08;
+  border-color: #ff6b08;
+}
+
+.btn-lib-js-active {
+  color: #fff;
+  background-color: #ff6b08;
+  border-color: #ff6b08;
+  box-shadow: 0 8px 43px #ff6b0199;
+}
+
+.btn-lib--black {
+  color: #000;
+  opacity: 1;
+  border-color: #000;
+}
+
+.btn-lib--black:hover {
+  color: #fff;
+  background-color: #ff6b08;
+  border-color: #ff6b08;
+}
+
+.btn-wrapper {
+  display: flex;
+}
+
+.switch__btn {
+  opacity: .4;
+  margin-top: -33px;
+  margin-left: 90px;
+  transition: opacity .5s cubic-bezier(.4, 0, .2, 1);
+  position: absolute;
+}
+
+.switch__btn:hover {
+  opacity: 1;
+}
+
+.switch__btn__icon-container {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.switch__btn__icon {
+  color: #ff6b08;
+  font-size: 25px;
+}
+
 @media screen and (width >= 768px) {
-  .content-library__image {
-    min-width: 260px;
+  .header__btn-wrapper {
+    gap: 32px;
   }
 
-  .content-library__title {
-    font-size: 24px;
-    line-height: 16px;
+  .switch__btn {
+    margin-left: 500px;
+  }
+
+  .header__btn {
+    width: 136px;
+    height: 44px;
   }
 }
 
 @media screen and (width >= 1280px) {
-  .content-library__image {
-    min-width: 300px;
+  .switch__btn {
+    margin-left: 1000px;
+  }
+
+  .header__btn-wrapper {
+    gap: 16px;
   }
 }
 
