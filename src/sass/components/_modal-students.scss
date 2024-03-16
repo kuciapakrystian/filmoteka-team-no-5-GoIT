@@ -7,14 +7,13 @@
   overflow-y: auto;
   width: 100vw;
   height: 100vh;
-}
-
-.modal-body {
+ }
+ .modal-body {
   min-width: 280px;
   min-height: 365px;
   width: 100%;
   background-color: #fff;
-  border: 2px solid #ff6b08;
+  border: 2px solid #FF6B08;
   border-radius: 10px;
   flex-direction: column;
   align-items: center;
@@ -23,86 +22,72 @@
   display: flex;
   position: relative;
   overflow-y: auto;
-
   @media screen and (min-width: 320px) {
-    max-width: 450px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+   max-width: 450px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) scale(1);
   }
   @media screen and (min-width: 768px) {
-    max-width: 600px;
-    min-height: 400px;
-    padding: 10px;
-    overflow: hidden;
+   max-width: 600px;
+   min-height: 400px;
+   padding: 10px;
+   overflow: hidden;
   }
-}
-
-body.team-open {
+ }
+ body.team-open {
   height: 100vh;
   overflow: hidden;
-}
-
-.modal-close {
+ }
+ .modal-close {
   position: absolute;
   top: 10px;
   right: 12px;
   width: 30px;
   height: 30px;
-  padding-bottom: 3px;  
+  padding-bottom: 3px;
   &:hover,
   &:focus {
-      transform: scale(1.25);
-
-    align-items: center;
+    transform: scale(1.25);
+   align-items: center;
   }
-}
-
-
-
-.is-hidden {
+ }
+ .is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-}
-
-.team-list {
+ }
+ .team-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: auto;
   gap: 25px;
-}
-
-.modal-team-title {
+ }
+ .modal-team-title {
   font-size: 50px;
   letter-spacing: 2px;
   text-align: center;
   margin-bottom: 20px;
-}
-
-.team-one {
+ }
+ .team-one {
   width: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
   text-align: center;
-}
-
-.team-photo:hover{
+ }
+ .team-photo:hover{
   transform: scale(1.15);
-box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
-margin-bottom: 5px;
-}
-
-.team-photo {
+ box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
+ margin-bottom: 5px;
+ }
+ .team-photo {
   width: 120px;
   height: 120px;
   border-radius: 35%;
-  border: 2px solid #ff6b08;
+  border: 2px solid #FF6B08;
   transition-delay: 50ms;
-}
-
-
+ }
