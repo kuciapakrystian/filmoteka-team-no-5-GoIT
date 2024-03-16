@@ -16,7 +16,7 @@ import './js/library-render'; */
 import './js/newLibrary'
 
 import './js/localStorage';
-import './js/students-modal';
+
 import './js/refreshPage';
 import './js/spinner';
 import './js/refreshrendering';

@@ -595,7 +595,6 @@ var _dayNight = require("./js/day-night");
 var _localStorage = require("./js/localStorage");
 /* import './js/library';
 import './js/library-render'; */ var _newLibrary = require("./js/newLibrary");
-var _studentsModal = require("./js/students-modal");
 var _refreshPage = require("./js/refreshPage");
 var _spinner = require("./js/spinner");
 var _refreshrendering = require("./js/refreshrendering");
@@ -603,7 +602,7 @@ var _newpagin = require("./js/newpagin");
 var _toTop = require("./js/to-top");
 "use strict";
 
-},{"./sass/components/_button.scss":"lvCtd","./js/cards-home":"hoeOg","./js/fetch":"3MHo1","./js/modal-card":"2yd8E","./js/search-form":"dt3tW","./js/login":"47T64","./js/login-modal":"7Hb2m","./js/day-night":"jOlzl","./js/localStorage":"45bAM","./js/newLibrary":"aZTDl","./js/students-modal":"1BHbY","./js/refreshPage":"ilg54","./js/spinner":"e4vVD","./js/refreshrendering":"8mtAC","./js/newpagin":"bT6UK","./js/to-top":"jodV9"}],"lvCtd":[function() {},{}],"hoeOg":[function(require,module,exports) {
+},{"./sass/components/_button.scss":"lvCtd","./js/cards-home":"hoeOg","./js/fetch":"3MHo1","./js/modal-card":"2yd8E","./js/search-form":"dt3tW","./js/login":"47T64","./js/login-modal":"7Hb2m","./js/day-night":"jOlzl","./js/localStorage":"45bAM","./js/newLibrary":"aZTDl","./js/refreshPage":"ilg54","./js/spinner":"e4vVD","./js/refreshrendering":"8mtAC","./js/newpagin":"bT6UK","./js/to-top":"jodV9"}],"lvCtd":[function() {},{}],"hoeOg":[function(require,module,exports) {
 
 },{}],"3MHo1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -6756,34 +6755,6 @@ const saveToQue = ()=>{
 };
 
 },{"./fetch":"3MHo1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aZTDl":[function(require,module,exports) {
-
-},{}],"1BHbY":[function(require,module,exports) {
-(()=>{
-    const refs = {
-        openModalBtn: document.querySelector("[data-modal-open]"),
-        closeModalBtn: document.querySelector("[data-modal-close]"),
-        modal: document.querySelector("[data-modal]"),
-        body: document.querySelector("body")
-    };
-    refs.modal.addEventListener("click", toggleModal);
-    refs.openModalBtn.addEventListener("click", toggleModal);
-    function toggleModal(e) {
-        if (Object.values(refs).includes(e.target)) {
-            refs.modal.classList.toggle("is-hidden");
-            onBodyToggle();
-        }
-    }
-    window.addEventListener("keydown", closeModalByEscape);
-    function closeModalByEscape(e) {
-        if (e.code === "Escape" && !refs.modal.classList.value.includes("is-hidden")) {
-            refs.modal.classList.toggle("is-hidden");
-            onBodyToggle();
-        }
-    }
-    function onBodyToggle() {
-        refs.body.classList.toggle("team-open");
-    }
-})();
 
 },{}],"ilg54":[function(require,module,exports) {
 const logo = document.querySelector(".logo");
