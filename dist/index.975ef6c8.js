@@ -6675,8 +6675,22 @@ paginationContainer.addEventListener("click", (event)=>{
 },{}],"47T64":[function(require,module,exports) {
 
 },{}],"7Hb2m":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = (()=>{
+    const refs = {
+        openModalBtn: document.querySelector(".login-open"),
+        closeModalBtn: document.querySelector(".login-close"),
+        modal: document.querySelector(".login-modal")
+    };
+    refs.openModalBtn.addEventListener("click", toggleModal);
+    refs.closeModalBtn.addEventListener("click", toggleModal);
+    function toggleModal() {
+        refs.modal.classList.toggle("is-hidden");
+    }
+})();
 
-},{}],"jOlzl":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jOlzl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "body", ()=>body);
