@@ -873,6 +873,14 @@ button {
   width: 14px;
 }
 
+.footer:hover .footer__icon {
+  transform: rotate(360deg);
+}
+
+.footer__icon {
+  transition: transform .5s ease-out;
+}
+
 @media screen and (width >= 768px) {
   .footer {
     height: 77px;
