@@ -1,0 +1,142 @@
+@use '../utils' as *;
+.log-in,
+.log-out {
+  font-size: 12px;
+  line-height: 1.166;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $secondary-text-cl;
+  background-color: $secondary-accent-cl;
+  border-radius: 15px;
+  padding: 3px 10px;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: transparent;
+  &:hover {
+    background-color: transparent;
+    color: $secondary-text-cl;
+    border-color: $secondary-accent-cl;
+    box-shadow: inset 0.1px 0.1px 7px 0.1px $secondary-accent-cl;
+  }
+}
+.sign-in,
+.sign-up {
+  border-color: transparent;
+  transition: all 500ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+  &:hover {
+    background-color: transparent;
+    color: $secondary-accent-cl;
+    border-color: $secondary-accent-cl;
+  }
+}
+.sign-up--btn-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 50px;
+}
+.login-title {
+  font-size: 40px;
+  font-weight: 500;
+  background: linear-gradient(225deg, $secondary-accent-cl, #eee, $secondary-accent-cl) 0 0 / 400%,
+    100%;
+  color: transparent;
+  border-radius: 2px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 15s infinite linear;
+}
+.login-wrapper {
+  justify-content: center;
+  margin: 30px auto;
+  text-align: center;
+}
+.form__btn {
+  justify-content: center;
+  padding: 5px 10px 5px;
+  display: inline-block;
+  background-color: $secondary-accent-cl;
+  color: $secondary-text-cl;
+  border-radius: 15px;
+  &:hover {
+    background-color: transparent;
+    color: $main-text-cl;
+    border-color: $secondary-accent-cl;
+    box-shadow: inset 0.1px 0.1px 7px 0.1px $secondary-accent-cl;
+  }
+}
+.modal-login__btn {
+  top: -10px;
+  left: 90%;
+}
+.login-modal {
+  transition: all 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71),
+    opacity 0.5s cubic-bezier(0.38, 0.53, 0.8, 0.71);
+}
+.modal-login {
+  position: absolute;
+  background-color: $secondary-bg-cl;
+  height: 400px;
+  width: 280px;
+  padding: 25px 20px 30px;
+  border-radius: 6px;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  &-close-btn {
+    position: fixed;
+    top: 10px;
+    left: 95%;
+    border: transparent;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    cursor: pointer;
+    left: 89%;
+    top: 5px;
+  }
+}
+.login-form {
+  margin-bottom: 25px;
+  margin-top: 50px;
+  width: 250px;
+  font-size: 12px;
+  color: $main-text-cl;
+}
+.login-input {
+  width: 220px;
+  height: 20px;
+  margin: 45px auto;
+  font-size: 14px;
+  line-height: 1.142;
+  display: flex;
+  color: $main-text-cl;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #545454;
+  outline: none;
+  transition: all 500ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+  &:focus,
+  &:hover {
+    border-bottom: 2px solid $secondary-accent-cl;
+  }
+}
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
