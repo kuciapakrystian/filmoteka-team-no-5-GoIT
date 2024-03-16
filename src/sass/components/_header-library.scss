@@ -2,105 +2,139 @@
 
 // edit below
 
-.cards-watched-container {
-    margin: 20px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    // max-width: 280px;
+.header-library {
+  position: relative;
+  background-image: url('/src/images/Rectangle-1x-desktop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  height: 230px;
+  margin: 0 auto;
+  color: $secondary-text-cl;
+  font-family: $main-font;
+  //box-shadow: -5px 10px 15px -6px $secondary-accent-cl;
 }
 
-.content-library__image {
-    width: 150px;
+.header__btn-wrapper {
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.content-library__img-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.header__btn {
+  text-transform: none;
+  width: 130px;
+  height: 44px;
 }
 
-//   .content-library__card {
-//     @include media(tablet) {
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//     }
-//   }
+.btn-lib {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
-.content-library__title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 0 5px;
 
-    @include font(16px, 1px);
-    margin-top: 30px;
+  text-transform: uppercase;
 
-}
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 5px;
 
-//   .content-library__list {
-//     @include media(tablet) {
-//       margin-left: 40px;
-//     }
+  &:hover {
+    animation: rotate 0.7s ease-in-out both;
+    animation-delay: 0.04s;
+  }
 
-//     @include media(tablet) {
-//       margin-left: 80px;
-//     }
-//   }
+  &--white {
+    color: $white-btn-color;
+    border-color: $white-btn-color;
 
-.content-library__link {
-    position: relative;
-    display: inline-block;
-
-    font-weight: 500;
-
-    &:after {
-        content: '';
-        bottom: 0;
-        left: 0;
-        display: block;
-        position: absolute;
-        width: 0;
-        height: 2px;
-        margin: -5px 0;
-        border-radius: 5px;
-        background-color: $secondary-accent-cl;
-        transition: width 0.3s ease-in 0s;
+    &:hover {
+      border-color: $accent-btn-color;
+      color: $white-btn-color;
+      background-color: $accent-btn-color;
     }
+  }
 
-    &:hover:after {
-        width: 100%;
+ 
+  &-js-active {
+    border-color: $accent-btn-color;
+    color: $white-btn-color;
+    background-color: $accent-btn-color;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  }
+
+  &--black {
+    border-color: $black-btn-color;
+    color: $black-btn-color;
+    opacity: 1;
+
+    &:hover {
+      border-color: $accent-btn-color;
+      color: $white-btn-color;
+      background-color: $accent-btn-color;
     }
+  }
 }
 
-.content-library__link:hover,
-.content-library__link:focus {
-    color: $secondary-accent-cl;
+.btn-wrapper {
+  display: flex;
 }
 
-.content-library__text {
-    margin-top: 30px;
-    margin-bottom: 40px;
-    @include font(14px, 16px);
-    font-weight: 400;
-    text-align: center;
+.switch__btn {
+  position: absolute;
+
+  margin-top: -33px;
+  margin-left: 90px;
+
+  opacity: 0.4;
+
+  transition: opacity;
+  transition-duration: $transition-time;
+  transition-timing-function: $transition-cubic;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.switch__btn__icon-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch__btn__icon {
+  color: $secondary-accent-cl;
+  font-size: 25px;
 }
 
 @media screen and (min-width: 768px) {
-    .content-library__image {
-        min-width: 260px;
-    }
+  .header__btn-wrapper {
+    gap: 32px;
+  }
 
-    .content-library__title {
-        @include font(24px, 16px);
+  .switch__btn {
+    margin-left: 500px;
+  }
 
-    }
-
+  .header__btn {
+    width: 136px;
+    height: 44px;
+  }
 }
 
-@media screen and (min-width: 1280) {
-    .content-library__image {
-        min-width: 300px;
-    }
+@media screen and (min-width: 1280px) {
+  .switch__btn {
+    margin-left: 1000px;
+  }
+
+  .header__btn-wrapper {
+    gap: 16px;
+  }
+
 }
