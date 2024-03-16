@@ -1,51 +1,54 @@
-.footer {
-  background-color: #f7f7f7;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+@use '../utils' as *;
 
-.footer-container {
+// edit below
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f7f7f7;
   display: flex;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  padding-bottom: 10px;
   align-items: center;
+  height: 100px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__text {
+    display: flex;
+    height: 100%;
+    color: #545454;
+    font-size: 14px;
+    line-height: 1.17;
+    gap: 4px;
+  }
+
+  &__link {
+    color: #545454;
+    text-decoration: underline;
+  }
+
+  &__link:hover {
+    cursor: pointer;
+    color: red;
+  }
+
+  &__icon {
+    // height: 13px;
+    width: 14px;
+  }
 }
 
-.first-part {
-  display: flex;
-}
-
-.second-part {
-  display: flex;
-  gap: 5px;
-  padding-left: 4px;
-}
-
-.open-modal {
-  text-decoration: underline;
-}
-
-.open-modal:hover {
-  color: #ff6b08;
-}
-
-.heart-footer {
-  padding-top: 7px;
-  transition-property: background-color, transform;
-  transition-duration: 500ms;
-  transition-timing-function: linear;
-  transition-delay: 0;
-}
-
-.heart-footer:hover {
-  transform: rotate(360deg);
-}
-
-.footer-text {
-  text-align: center;
-  line-height: 26px;
-  font-size: 14px;
+@media screen and (min-width: 768px) {
+  .footer {
+    height: 77px;
+    &__container {
+      flex-direction: row;
+    }
+  }
 }
