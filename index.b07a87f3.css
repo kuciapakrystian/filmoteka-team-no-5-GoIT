@@ -337,34 +337,6 @@ button {
   box-shadow: 0 0 0 3px #ff6b08;
 }
 
-@media (width >= 768px) {
-  .header-home__container {
-    max-width: 617px;
-  }
-
-  .logo__text {
-    font-size: 30px;
-    font-weight: 500;
-    display: inline-block;
-  }
-
-  .nav__list {
-    gap: 40px;
-  }
-}
-
-@media (width >= 1024px) {
-  .header-home__container {
-    max-width: 882px;
-  }
-}
-
-@keyframes move-bg {
-  to {
-    background-position: 400%;
-  }
-}
-
 .header-home {
   color: #fff;
   background-image: url("bg-image.a1af2eb5.jpg");
@@ -514,6 +486,29 @@ button {
 @media (width >= 1024px) {
   .header-home__container {
     max-width: 882px;
+  }
+}
+
+@keyframes move-bg {
+  to {
+    background-position: 400%;
+  }
+}
+
+@media screen and (width >= 768px) {
+  .content-library__image {
+    min-width: 260px;
+  }
+
+  .content-library__title {
+    font-size: 24px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .content-library__image {
+    min-width: 300px;
   }
 }
 
