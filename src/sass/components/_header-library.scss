@@ -2,162 +2,105 @@
 
 // edit below
 
-.header-home {
-  position: relative;
-  background-image: url('/src/images/bg-image.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  max-width: 100%;
-  height: 230px;
-  margin: 0 auto;
-  color: $secondary-text-cl;
-  font-family: $main-font;
+.cards-watched-container {
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    // max-width: 280px;
 }
 
-.header-home__bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: $dark-secondary-bg-cl;
+.content-library__image {
+    width: 150px;
 }
 
-.header-home__container {
-  max-width: 280px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.content-library__img-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+//   .content-library__card {
+//     @include media(tablet) {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//     }
+//   }
 
-  &:hover .logo__icon {
-    transform: rotate(180deg);
-  }
+.content-library__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  &__icon {
-    transition: transform 0.5s ease-out;
-  }
+    @include font(16px, 1px);
+    margin-top: 30px;
+
 }
 
-.logo__text {
-  display: none;
-  background: linear-gradient(
-        225deg,
-        $secondary-accent-cl,
-        $main-bg-cl,
-        $secondary-accent-cl
-      )
-      0 0 / 400%,
-    100%;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: move-bg 8s infinite linear;
-}
+//   .content-library__list {
+//     @include media(tablet) {
+//       margin-left: 40px;
+//     }
 
-.menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-top: 40px;
-}
+//     @include media(tablet) {
+//       margin-left: 80px;
+//     }
+//   }
 
-.nav__list {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.nav__item {
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.nav__link {
-  transition: color 250ms;
-
-  &--active {
-    border-bottom: 3px solid $secondary-accent-cl;
-  }
-
-  &:hover {
-    color: $secondary-accent-cl;
-  }
-}
-
-.search-form {
-  width: 100%;
-  max-width: 336px;
-  border-bottom: 1px solid white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-
-  input {
-    background-color: transparent;
-    width: 100%;
-    border: none;
-    padding: 5px;
-    font-size: 14px;
-    outline: none;
-    color: inherit;
-
-    &:focus::placeholder {
-      color: transparent;
-    }
-  }
-
-  &__icon {
-    transition: transform 250ms;
-  }
-
-  button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-
-    &:hover .search-form__icon {
-      transform: scale(1.5);
-    }
-  }
-}
-
-.warning {
-  color: #ff001b;
-  font-size: 14px;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .header-home__container {
-    max-width: 617px;
-  }
-
-  .logo__text {
+.content-library__link {
+    position: relative;
     display: inline-block;
-    font-size: 30px;
+
     font-weight: 500;
-  }
 
-  .nav__list {
-    gap: 40px;
-  }
+    &:after {
+        content: '';
+        bottom: 0;
+        left: 0;
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 2px;
+        margin: -5px 0;
+        border-radius: 5px;
+        background-color: $secondary-accent-cl;
+        transition: width 0.3s ease-in 0s;
+    }
+
+    &:hover:after {
+        width: 100%;
+    }
 }
 
-@media (min-width: 1024px) {
-  .header-home__container {
-    max-width: 882px;
-  }
+.content-library__link:hover,
+.content-library__link:focus {
+    color: $secondary-accent-cl;
 }
 
-@keyframes move-bg {
-  to {
-    background-position: 400%;
-  }
+.content-library__text {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    @include font(14px, 16px);
+    font-weight: 400;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .content-library__image {
+        min-width: 260px;
+    }
+
+    .content-library__title {
+        @include font(24px, 16px);
+
+    }
+
+}
+
+@media screen and (min-width: 1280) {
+    .content-library__image {
+        min-width: 300px;
+    }
 }
