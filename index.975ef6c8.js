@@ -603,8 +603,72 @@ var _toTop = require("./js/to-top");
 "use strict";
 
 },{"./sass/components/_button.scss":"lvCtd","./js/cards-home":"hoeOg","./js/fetch":"3MHo1","./js/modal-card":"2yd8E","./js/search-form":"dt3tW","./js/login":"47T64","./js/login-modal":"7Hb2m","./js/day-night":"jOlzl","./js/localStorage":"45bAM","./js/newLibrary":"aZTDl","./js/refreshPage":"ilg54","./js/spinner":"e4vVD","./js/refreshrendering":"8mtAC","./js/newpagin":"bT6UK","./js/to-top":"jodV9"}],"lvCtd":[function() {},{}],"hoeOg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "moviesContainer", ()=>moviesContainer);
+parcelHelpers.export(exports, "loadMovies", ()=>loadMovies);
+var _cardsHomeScss = require("../sass/components/_cards-home.scss");
+var _fetch = require("./fetch");
+var _spinner = require("./spinner");
+const moviesContainer = document.querySelector(".cards-container");
+function loadMovies() {
+    //get genres for movies
+    (0, _fetch.getGenres)().then((el)=>{
+        const genres = el;
+        //get movies with genres description
+        (0, _fetch.getInitialMovies)().then((res)=>{
+            const initialMovies = res.data.results;
+            generateCards(initialMovies, genres);
+        }).catch(function(error) {
+        // handle error
+        });
+    });
+    //create set of movie cards
+    function generateCards(data, genres) {
+        data.map((movie)=>{
+            const genresDesc = getGenresDescription(movie, genres);
+            createMovieCard(movie, genresDesc);
+        });
+    }
+    //generating array of genres description basing on array of objects from genres fetch function and genre_ids from movie
+    function getGenresDescription(movie, genres) {
+        return genres.reduce((acc, el)=>{
+            if (movie.genre_ids.includes(el.id)) acc.push(el.name);
+            return acc;
+        }, []);
+    }
+    //create single movie card element
+    function createMovieCard(singleMovie, genresDesc) {
+        let movieWrapper = document.createElement("div");
+        movieWrapper.classList.add("movie-card");
+        movieWrapper.setAttribute("id", singleMovie.id);
+        //create full url for images
+        let urlImg = `https://image.tmdb.org/t/p/w300${singleMovie.poster_path}`;
+        let moviePicture = document.createElement("img");
+        moviePicture.classList.add("movie-card__img");
+        moviePicture.setAttribute("src", urlImg);
+        moviePicture.setAttribute("alt", singleMovie.title);
+        moviePicture.setAttribute("loading", "lazy");
+        let movieTitle = document.createElement("h2");
+        movieTitle.classList.add("movie-card__title");
+        movieTitle.textContent = singleMovie.title;
+        let movieInfo = document.createElement("span");
+        movieInfo.classList.add("movie-card__info");
+        if (genresDesc.length > 3) {
+            genresDesc = genresDesc.slice(0, 2);
+            movieInfo.textContent = `${genresDesc.join(", ") + ", Other"} | ${singleMovie.release_date.slice(0, 4)}`;
+        } else movieInfo.textContent = `${genresDesc.join(", ")} | ${singleMovie.release_date.slice(0, 4)}`;
+        let movieRating = document.createElement("span");
+        movieRating.classList.add("movie-card__rating");
+        movieRating.textContent = singleMovie.vote_average.toFixed(1);
+        //adding elements to HTML
+        moviesContainer.appendChild(movieWrapper);
+        movieWrapper.append(moviePicture, movieTitle, movieInfo, movieRating);
+    }
+}
+document.addEventListener("DOMContentLoaded", (0, _spinner.loader)(loadMovies));
 
-},{}],"3MHo1":[function(require,module,exports) {
+},{"../sass/components/_cards-home.scss":"cHgt1","./fetch":"3MHo1","./spinner":"e4vVD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cHgt1":[function() {},{}],"3MHo1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "API_KEY", ()=>API_KEY);
