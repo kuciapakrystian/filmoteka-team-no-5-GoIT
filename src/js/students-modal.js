@@ -1,4 +1,4 @@
-
+import {Spinner} from 'spin.js';
 
 const modalLink = document.querySelector('.footer__link');
 const modalWindow = document.querySelector('.modal');

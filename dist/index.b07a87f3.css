@@ -1033,12 +1033,6 @@ button {
   left: 0;
 }
 
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
 :root {
   --grow_title: 1;
   --grow_genres: 0;
@@ -1230,112 +1224,179 @@ button {
 }
 
 .modal {
-  background-color: #000000b3;
-  width: 100vw;
-  height: 100vh;
-  padding: 20px;
+  background-color: #bdc3c7b3;
+  padding: 0 15px;
+  transition: all .5s ease-in-out;
+  display: flex;
   position: fixed;
+  inset: 0;
+}
+
+.modal__container {
+  opacity: 1;
+  background-color: #f7f7f7;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50%;
+  min-width: 240px;
+  max-width: 900px;
+  height: 75%;
+  margin: auto;
+  display: flex;
+  box-shadow: 0 2px 4px #0006, 0 7px 13px -3px #0000004d, inset 0 -3px #0003;
+}
+
+.modal__slide {
+  opacity: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 1s;
+  display: flex;
+}
+
+.modal__nav {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.modal__navlink {
+  background-color: #333;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  transition: background-color .6s;
+  display: inline-block;
+}
+
+.modal__navlink.active {
+  background-color: #ff6b01;
+  border: 1px solid #ff6b01;
+}
+
+.modal__image {
+  border-radius: 2%;
+  width: 80%;
+  max-height: 200px;
+  transition: all .5s ease-in-out;
+}
+
+.modal__description {
+  text-align: center;
+  width: 80%;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.17;
+}
+
+.modal__info {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.modal__name {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  min-width: 200px;
+  font-family: Mynerve;
+  font-size: 22px;
+  display: flex;
+}
+
+.modal__spin {
+  position: relative;
   top: 0;
   left: 0;
-  overflow-y: auto;
-}
-
-.modal-body {
-  background-color: #fff;
-  border: 2px solid #ff6b08;
-  border-radius: 10px;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  min-width: 280px;
-  min-height: 365px;
-  padding: 26px;
-  transition: transform .25s cubic-bezier(.4, 0, .2, 1);
-  display: flex;
-  position: relative;
-  overflow-y: auto;
-}
-
-@media screen and (width >= 320px) {
-  .modal-body {
-    max-width: 450px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%)scale(1);
-  }
-}
-
-@media screen and (width >= 768px) {
-  .modal-body {
-    max-width: 600px;
-    min-height: 400px;
-    padding: 10px;
-    overflow: hidden;
-  }
-}
-
-body.team-open {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.modal-close {
-  width: 30px;
-  height: 30px;
-  padding-bottom: 3px;
-  position: absolute;
-  top: 10px;
-  right: 12px;
-}
-
-.modal-close:hover, .modal-close:focus {
-  align-items: center;
-  transform: scale(1.25);
 }
 
 .is-hidden {
   opacity: 0;
-  pointer-events: none;
   visibility: hidden;
+  pointer-events: none;
 }
 
-.team-list {
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  margin: auto;
-  display: flex;
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-.modal-team-title {
-  letter-spacing: 2px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 50px;
+@keyframes fade {
+  from {
+    opacity: .4;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-.team-one {
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  width: 150px;
-  display: flex;
+@media screen and (width >= 768px) {
+  .modal__name {
+    flex-direction: row;
+    font-size: 32px;
+  }
+
+  .modal__spin {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .modal__image {
+    max-height: 300px;
+  }
+
+  .modal__slide {
+    gap: 20px;
+  }
+
+  .modal__navlink {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+  }
+
+  .modal__description {
+    font-size: 22px;
+  }
 }
 
-.team-photo:hover {
-  margin-bottom: 5px;
-  transform: scale(1.15);
-  box-shadow: 10px 10px 8px 2px #0000004d;
-}
+@media screen and (width >= 1280px) {
+  .modal__name {
+    gap: 40px;
+    font-size: 44px;
+  }
 
-.team-photo {
-  border: 2px solid #ff6b08;
-  border-radius: 35%;
-  width: 120px;
-  height: 120px;
-  transition-delay: 50ms;
+  .modal__spin {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .modal__image {
+    max-height: 400px;
+  }
+
+  .modal__slide {
+    gap: 20px;
+  }
+
+  .modal__navlink {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+  }
+
+  .modal__description {
+    font-size: 22px;
+  }
 }
 
 @keyframes spinner-line-fade-more {

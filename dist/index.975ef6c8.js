@@ -603,7 +603,7 @@ var _newpagin = require("./js/newpagin");
 var _toTop = require("./js/to-top");
 "use strict";
 
-},{"./sass/components/_button.scss":"lvCtd","./js/cards-home":"hoeOg","./js/fetch":"3MHo1","./js/modal-card":"2yd8E","./js/search-form":"dt3tW","./js/login":"47T64","./js/login-modal":"7Hb2m","./js/day-night":"jOlzl","./js/localStorage":"45bAM","./js/newLibrary":"aZTDl","./js/refreshPage":"ilg54","./js/spinner":"e4vVD","./js/refreshrendering":"8mtAC","./js/newpagin":"bT6UK","./js/to-top":"jodV9","./js/students-modal":"1BHbY"}],"lvCtd":[function() {},{}],"hoeOg":[function(require,module,exports) {
+},{"./sass/components/_button.scss":"lvCtd","./js/cards-home":"hoeOg","./js/fetch":"3MHo1","./js/modal-card":"2yd8E","./js/search-form":"dt3tW","./js/login":"47T64","./js/login-modal":"7Hb2m","./js/day-night":"jOlzl","./js/localStorage":"45bAM","./js/newLibrary":"aZTDl","./js/students-modal":"1BHbY","./js/refreshPage":"ilg54","./js/spinner":"e4vVD","./js/refreshrendering":"8mtAC","./js/newpagin":"bT6UK","./js/to-top":"jodV9"}],"lvCtd":[function() {},{}],"hoeOg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "moviesContainer", ()=>moviesContainer);
@@ -20395,26 +20395,8 @@ toggle.addEventListener("change", ()=>{
     else body.classList.add("dark-theme");
 });
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ilg54":[function(require,module,exports) {
-const logo = document.querySelector(".logo");
-logo.addEventListener("click", ()=>history.go(0));
-
-},{}],"jodV9":[function(require,module,exports) {
-const scrollTopButton = document.querySelector("#scroll-top-button");
-const onScroll = (event)=>{
-    const scrollPosition = event.target.scrollingElement.scrollTop;
-    scrollTopButton.classList.toggle("visible", scrollPosition > 0);
-};
-const scrollToTop = ()=>{
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-};
-document.addEventListener("scroll", onScroll);
-scrollTopButton.addEventListener("click", scrollToTop);
-
-},{}],"1BHbY":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1BHbY":[function(require,module,exports) {
+var _spinJs = require("spin.js");
 const modalLink = document.querySelector(".footer__link");
 const modalWindow = document.querySelector(".modal");
 let slides = document.getElementsByClassName("modal__slide");
@@ -20470,8 +20452,27 @@ var opts = {
     className: "spinner",
     position: "absolute"
 };
-var spinner = new Spinner(opts).spin();
+var spinner = new (0, _spinJs.Spinner)(opts).spin();
 modalSpin.appendChild(spinner.el);
+
+},{"spin.js":"iZQ5x"}],"ilg54":[function(require,module,exports) {
+const logo = document.querySelector(".logo");
+logo.addEventListener("click", ()=>history.go(0));
+
+},{}],"jodV9":[function(require,module,exports) {
+const scrollTopButton = document.querySelector("#scroll-top-button");
+const onScroll = (event)=>{
+    const scrollPosition = event.target.scrollingElement.scrollTop;
+    scrollTopButton.classList.toggle("visible", scrollPosition > 0);
+};
+const scrollToTop = ()=>{
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+};
+document.addEventListener("scroll", onScroll);
+scrollTopButton.addEventListener("click", scrollToTop);
 
 },{}]},["farZc","8lqZg"], "8lqZg", "parcelRequired7c6")
 

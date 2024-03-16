@@ -12,9 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mynerve&family=Raleway:wght@500&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.30f7f635.svg" type="image/x-icon">
+    <!-- Please do not change stylesheet below - Parcel supports Sass automatically, no sass compiler needed
+    To ensure proper sass complilation, make sure your styles are processed through index.scss-->
     <link rel="stylesheet" href="/index.b07a87f3.css">
   </head>
   <body class="light-theme">
+    <!-- ❗️❗️❗️ Add partials like so for every page -->
+    
     <div class="content-wrap">
       <button id="scroll-top-button" class="scroll-top-button" type="button">
     <svg class="scroll-top-icon" width="30px" height="30px">
@@ -200,63 +204,64 @@
     </div>
 </div>
 
-    <div class="modal is-hidden" data-modal="">
-  <div class="modal-body">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="modal-close" data-modal-close="">
-                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"></line>
-                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"></line>
-            </svg>
-    <h2 class="modal-team-title">Our Team</h2>
-    <ul class="team-list">
-      <li class="team-one">
-        <img class="team-photo" src="/photo_2023-12-01_14-49-50_720%20(1).e2139004.jpg" alt="">
-        <h3>Krystian</h3>
-        <p>Front Dev</p>
-      </li>
-      <li class="team-one">
-        <img class="team-photo" src="/124610719_114571890458127_4078634237841751645_n.307811dd.jpg" alt="">
-        <h3>Marek</h3>
-        <p>Front Dev</p>
-      </li>
-      <li class="team-one">
-        <img class="team-photo" src="/4149074c-0bf1-4dfb-afd8-c2dc3a840bd6_720.9e8a3684.jpg" alt="">
-        <h3>Kasia</h3>
-        <p>Front Dev</p>
-      </li>
-      <li class="team-one">
-        <img class="team-photo" src="/img_0006_720%20(1).ecffeb50.jpg" alt="">
-        <h3>Klaudia</h3>
-        <p>Front Dev</p>
-      </li>
-      <li class="team-one">
-        <img class="team-photo" src="/image.8d5085cd.png" alt="">
-        <h3>Maciek</h3>
-        <p>Front Dev</p>
-      </li>
-      <li class="team-one">
-        <img class="team-photo" src="/kp_720.ef319cae.jpg" alt="">
-        <h3>Lucy</h3>
-        <p>Front Dev</p>
-      </li>
-      <li class="team-one">
-        <img class="team-photo" src="/img_20190422_115447_720.d1ea9604.jpg" alt="">
-        <h3>Anton</h3>
-        <p>Front Dev</p>
-      </li>
-      <li class="team-one">
-        <img class="team-photo" src="/image_from_ios_720.6fca6dfc.jpg" alt="">
-        <h3>Klaudia</h3>
-        <p>Front Dev</p>
-      </li>
-      <li class="team-one">
-        <img class="team-photo" src="/csgogoit_360.fe58d56c.png" alt="">
-        <h3>Konrad</h3>
-        <p>Front Dev</p>
-      </li>
-    </ul>
+    <!-- partial for advanced version -->
+<div class="modal is-hidden" data-modal="">
+  <div class="modal__container">
+      <div class="modal__name">
+          <p>B</p>
+          <p class="modal__spin"></p>
+          <p>S G</p>
+      </div>
+      <div class="modal__info">
+          <div class="modal__slide fade">
+              <img class="modal__image fade" src="/photo_2023-12-01_14-49-50_720%20(1).e2139004.jpg" alt="Krystian">
+              <p class="modal__description">Krystian - Team Leader</p>
+          </div>
+          <div class="modal__slide fade">
+              <img class="modal__image fade" src="/image_from_ios_720.6fca6dfc.jpg" alt="Klaudia">
+              <p class="modal__description">Klaudia - Scrum Master</p>
+          </div>
+          <div class="modal__slide fade">
+              <img class="modal__image fade" src="/4149074c-0bf1-4dfb-afd8-c2dc3a840bd6_720.9e8a3684.jpg" alt="Kasia">
+              <p class="modal__description">Kasia - Developer</p>
+          </div>
+          <div class="modal__slide fade">
+              <img class="modal__image fade" src="/img_0006_720.efe9b495.jpg" alt="Klaudia">
+              <p class="modal__description">Klaudia - Developer</p>
+          </div>
+          <div class="modal__slide fade">
+              <img class="modal__image fade" src="/image.8d5085cd.png" alt="Maciek">
+              <p class="modal__description">Maciek - Developer</p>
+          </div>
+          <div class="modal__slide fade">
+              <img class="modal__image fade" src="/kp_720.ef319cae.jpg" alt="Lucy">
+              <p class="modal__description">Lucy - Developer</p>
+          </div>
+          <div class="modal__slide fade">
+              <img class="modal__image fade" src="/img_20190422_115447_720.d1ea9604.jpg" alt="Anton">
+              <p class="modal__description">Anton - Developer</p>
+          </div>
+          <div class="modal__slide fade">
+            <img class="modal__image fade" src="/124610719_114571890458127_4078634237841751645_n.307811dd.jpg" alt="Marek">
+            <p class="modal__description">Marek - Developer</p>
+        </div>
+        <div class="modal__slide fade">
+          <img class="modal__image fade" src="/csgogoit_360.fe58d56c.png" alt="Konrad">
+          <p class="modal__description">Konrad - Developer</p>
+      </div>
+      </div>
+      <ul class="modal__nav">
+          <li class="modal__navlink"></li>
+          <li class="modal__navlink"></li>
+          <li class="modal__navlink"></li>
+          <li class="modal__navlink"></li>
+          <li class="modal__navlink"></li>
+          <li class="modal__navlink"></li>
+          <li class="modal__navlink"></li>
+      </ul>
   </div>
 </div>
-
     <script src="/index.975ef6c8.js" defer=""></script>
+    <!-- <include src="./partials/theme.html"></include> -->
   </body>
 </html>
