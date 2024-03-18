@@ -21,13 +21,12 @@ let user;
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyAwXObZpcAp1uILR4HQJMXwwu50FzgIP0E',
-  authDomain: 'filmoteka-d1a57.firebaseapp.com',
-  projectId: 'filmoteka-d1a57',
-  storageBucket: 'filmoteka-d1a57.appspot.com',
-  messagingSenderId: '372882009932',
-  appId: '1:372882009932:web:5967a87f09a5b8098c29e9',
-  measurementId: 'G-G8TWWHT34M',
+  apiKey: "AIzaSyCMscnmRggLL4E3fkDPQ7VSCALfhcgPML0",
+  authDomain: "film-f5504.firebaseapp.com",
+  projectId: "film-f5504",
+  storageBucket: "film-f5504.appspot.com",
+  messagingSenderId: "430753006476",
+  appId: "1:430753006476:web:29d0e375e8f9cf1b45cca9"
 };
 
 // Initialize Firebase
