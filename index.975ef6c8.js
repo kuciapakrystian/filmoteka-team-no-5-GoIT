@@ -7191,12 +7191,12 @@ let user;
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCMscnmRggLL4E3fkDPQ7VSCALfhcgPML0",
-    authDomain: "film-f5504.firebaseapp.com",
-    projectId: "film-f5504",
-    storageBucket: "film-f5504.appspot.com",
-    messagingSenderId: "430753006476",
-    appId: "1:430753006476:web:29d0e375e8f9cf1b45cca9"
+    apiKey: "AIzaSyDk7r031aUVurekXwtVg6wgQLN_Jxj-t9E",
+    authDomain: "filmoteka-1d0f3.firebaseapp.com",
+    projectId: "filmoteka-1d0f3",
+    storageBucket: "filmoteka-1d0f3.appspot.com",
+    messagingSenderId: "989296983812",
+    appId: "1:989296983812:web:65ee539fbd7df7dcb4da51"
 };
 // Initialize Firebase
 const app = (0, _app.initializeApp)(firebaseConfig);
